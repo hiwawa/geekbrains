@@ -7,7 +7,7 @@ import UIKit
 let a: Int = 5
 let b: Int = 10
 let c: Int = 2
-print("Уравнениe вида ax2+bx+c=0. Значения переменных: a = 5, b = 4, c = 2")
+print("Уравнениe вида ax2+bx+c=0. Значения переменных : a = 5, b = 4, c = 2")
 var D: Int = (b*b) - (4*a*c)
 print("Дискриминант равен: " + String(D))
 var korenD = sqrt(Double(D))
