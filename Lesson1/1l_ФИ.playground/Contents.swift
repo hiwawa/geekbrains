@@ -14,14 +14,12 @@ var korenD = sqrt(Double(D))
 
 if D<0{
     print("Нет корней")
-};
-if (D>0) {
+} else if D>0 {
     let x1 = (Double(-b) + korenD)/(2*Double(a))
     let x2 = (Double(-b) - korenD)/(2*Double(a))
     print("x1 равен: " + String(format: "%.2f", x1)
         + ", x2 равен: " + String(format: "%.2f", x2)) //Как можно \(х1) отформатировать таким образом?
-};
-if (D==0) {
+} else if D == 0 {
     let x = Int(-b)/(2*Int(a))
     print("Переменная х равна \(x)")
 };
