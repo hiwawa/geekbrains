@@ -24,10 +24,19 @@ for item in 0...99 {
     vorray.insert(item+1, at: item)
 }
 print("Количество элементов \(vorray.count)")
-// print(vorray)
+//print(vorray)
 
 //4. Удалить из этого массива все четные числа и все числа, которые не делятся на 3.
 
-var filtrray = vorray
-filtrray.count
-var i = 0
+var countAr = 0
+
+for i in vorray where (i % 2 == 0) || (i % 3 != 0) {
+    vorray.remove(at: (i - 1) - countAr)
+    countAr += 1
+}
+
+print(vorray)
+
+//5. * Написать функцию, которая добавляет в массив новое число Фибоначчи, и добавить при помощи нее 100 элементов.
+//Числа Фибоначчи определяются соотношениями Fn=Fn-1 + Fn-2
+
