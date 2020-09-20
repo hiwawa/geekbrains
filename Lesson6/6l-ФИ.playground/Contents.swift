@@ -1,7 +1,12 @@
 import UIKit
+import Foundation
 
 class Car {
     var brand: String
+    
+    func status () -> String{
+        return "Автомобиль \(brand)."
+    }
     
     init(brand: String) {
         self.brand = brand
@@ -12,7 +17,7 @@ class Car {
 //1. Реализовать свой тип коллекции «очередь» (queue) c использованием дженериков.
 
 struct Queue<T> {
-    private var elements: [T] = []           // массив типа Т
+    var elements: [T] = []           // массив типа Т
     
     mutating func push(_ element: T) {      // добавляем элемент типа Т
         elements.append(element)
@@ -21,23 +26,17 @@ struct Queue<T> {
         return elements.removeLast()
     }
     
-    func get() -> Array<Any> {
+    mutating func get() -> Array<Any> {            // извлекаем элемент типа Т
         return elements
     }
-    
 }
 //
 //2. Добавить ему несколько методов высшего порядка, полезных для этой коллекции (пример: filter для массивов)
 
-var carBmw = Queue<Car>()
-carBmw.push(Car(brand: "BMW 530"))
-carBmw.push(Car(brand: "Mercedes S 320"))
-carBmw.push(Car(brand: "Nissan"))
-carBmw.push(Car(brand: "BMW 525"))
-carBmw.get()
+var carADD = Queue<Car>()
+carADD.push(Car(brand: "BMW M3"))
+carADD.push(Car(brand: "BMW M5"))
+carADD.push(Car(brand: "Mercedes S 350"))
+carADD.push(Car(brand: "Mercedes C 180"))
 
-
-
-
-//
 //3. * Добавить свой subscript, который будет возвращать nil в случае обращения к несуществующему индексу.
