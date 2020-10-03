@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E31527242522904C002770ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31527232522904C002770ED /* ProfileViewController.swift */; };
 		E3CCE75D251FE051000A0FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE75C251FE051000A0FDE /* AppDelegate.swift */; };
 		E3CCE75F251FE051000A0FDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE75E251FE051000A0FDE /* SceneDelegate.swift */; };
 		E3CCE761251FE051000A0FDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE760251FE051000A0FDE /* ViewController.swift */; };
@@ -14,6 +15,9 @@
 		E3CCE766251FE054000A0FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CCE765251FE054000A0FDE /* Assets.xcassets */; };
 		E3CCE774251FE054000A0FDE /* VK_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE773251FE054000A0FDE /* VK_AppTests.swift */; };
 		E3CCE77F251FE054000A0FDE /* VK_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE77E251FE054000A0FDE /* VK_AppUITests.swift */; };
+		E3E0582E2528A001002B888B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0582D2528A001002B888B /* LoginViewController.swift */; };
+		E3E058342528D045002B888B /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E058332528D045002B888B /* FriendsViewController.swift */; };
+		E3E058392528D06C002B888B /* UserPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E058382528D06C002B888B /* UserPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E31527232522904C002770ED /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E3CCE759251FE051000A0FDE /* VK App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CCE75C251FE051000A0FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3CCE75E251FE051000A0FDE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +52,9 @@
 		E3CCE77A251FE054000A0FDE /* VK AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VK AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CCE77E251FE054000A0FDE /* VK_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_AppUITests.swift; sourceTree = "<group>"; };
 		E3CCE780251FE054000A0FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3E0582D2528A001002B888B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E3E058332528D045002B888B /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		E3E058382528D06C002B888B /* UserPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E38B14D5252897560096F09C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				E3E0582D2528A001002B888B /* LoginViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		E38B14D7252897870096F09C /* System */ = {
+			isa = PBXGroup;
+			children = (
+				E3CCE75C251FE051000A0FDE /* AppDelegate.swift */,
+				E3CCE75E251FE051000A0FDE /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
 		E3CCE750251FE051000A0FDE = {
 			isa = PBXGroup;
 			children = (
@@ -97,12 +122,13 @@
 		E3CCE75B251FE051000A0FDE /* VK App */ = {
 			isa = PBXGroup;
 			children = (
-				E3CCE75C251FE051000A0FDE /* AppDelegate.swift */,
-				E3CCE75E251FE051000A0FDE /* SceneDelegate.swift */,
-				E3CCE760251FE051000A0FDE /* ViewController.swift */,
+				E3E058322528D029002B888B /* Profile */,
+				E38B14D7252897870096F09C /* System */,
+				E38B14D5252897560096F09C /* Auth */,
 				E3CCE762251FE051000A0FDE /* Main.storyboard */,
-				E3CCE765251FE054000A0FDE /* Assets.xcassets */,
+				E3CCE760251FE051000A0FDE /* ViewController.swift */,
 				E3CCE76A251FE054000A0FDE /* Info.plist */,
+				E3CCE765251FE054000A0FDE /* Assets.xcassets */,
 			);
 			path = "VK App";
 			sourceTree = "<group>";
@@ -123,6 +149,16 @@
 				E3CCE780251FE054000A0FDE /* Info.plist */,
 			);
 			path = "VK AppUITests";
+			sourceTree = "<group>";
+		};
+		E3E058322528D029002B888B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E31527232522904C002770ED /* ProfileViewController.swift */,
+				E3E058332528D045002B888B /* FriendsViewController.swift */,
+				E3E058382528D06C002B888B /* UserPhotoViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +292,10 @@
 			files = (
 				E3CCE761251FE051000A0FDE /* ViewController.swift in Sources */,
 				E3CCE75D251FE051000A0FDE /* AppDelegate.swift in Sources */,
+				E31527242522904C002770ED /* ProfileViewController.swift in Sources */,
+				E3E0582E2528A001002B888B /* LoginViewController.swift in Sources */,
+				E3E058392528D06C002B888B /* UserPhotoViewController.swift in Sources */,
+				E3E058342528D045002B888B /* FriendsViewController.swift in Sources */,
 				E3CCE75F251FE051000A0FDE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
