@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E30EA307253621DE00CA71F2 /* FriendListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EA306253621DE00CA71F2 /* FriendListCell.swift */; };
+		E30EA31025363F9400CA71F2 /* UserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EA30F25363F9400CA71F2 /* UserStruct.swift */; };
+		E30EA3182539F33900CA71F2 /* GroupStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EA3172539F33900CA71F2 /* GroupStruct.swift */; };
+		E30EA3202539F80D00CA71F2 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EA31F2539F80D00CA71F2 /* GroupViewController.swift */; };
+		E30EA325253B0D6A00CA71F2 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EA324253B0D6900CA71F2 /* GroupListCell.swift */; };
 		E31527242522904C002770ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31527232522904C002770ED /* ProfileViewController.swift */; };
-		E3C185E12528E10B002D7F63 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C185E02528E10B002D7F63 /* MessagesViewController.swift */; };
 		E3C185E62528E11D002D7F63 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C185E52528E11D002D7F63 /* SettingsViewController.swift */; };
 		E3CCE75D251FE051000A0FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE75C251FE051000A0FDE /* AppDelegate.swift */; };
 		E3CCE75F251FE051000A0FDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE75E251FE051000A0FDE /* SceneDelegate.swift */; };
@@ -40,8 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E30EA306253621DE00CA71F2 /* FriendListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListCell.swift; sourceTree = "<group>"; };
+		E30EA30F25363F9400CA71F2 /* UserStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStruct.swift; sourceTree = "<group>"; };
+		E30EA3172539F33900CA71F2 /* GroupStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStruct.swift; sourceTree = "<group>"; };
+		E30EA31F2539F80D00CA71F2 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		E30EA324253B0D6900CA71F2 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		E31527232522904C002770ED /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		E3C185E02528E10B002D7F63 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		E3C185E52528E11D002D7F63 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E3CCE759251FE051000A0FDE /* VK App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CCE75C251FE051000A0FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +94,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E30EA305253621AE00CA71F2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E30EA306253621DE00CA71F2 /* FriendListCell.swift */,
+				E30EA324253B0D6900CA71F2 /* GroupListCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E30EA30B25363E6C00CA71F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E30EA30F25363F9400CA71F2 /* UserStruct.swift */,
+				E30EA3172539F33900CA71F2 /* GroupStruct.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E38B14D5252897560096F09C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,11 +184,13 @@
 		E3E058322528D029002B888B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				E30EA30B25363E6C00CA71F2 /* Model */,
+				E30EA305253621AE00CA71F2 /* Cells */,
 				E31527232522904C002770ED /* ProfileViewController.swift */,
 				E3E058332528D045002B888B /* FriendsViewController.swift */,
 				E3E058382528D06C002B888B /* UserPhotoViewController.swift */,
-				E3C185E02528E10B002D7F63 /* MessagesViewController.swift */,
 				E3C185E52528E11D002D7F63 /* SettingsViewController.swift */,
+				E30EA31F2539F80D00CA71F2 /* GroupViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -296,13 +324,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E30EA3202539F80D00CA71F2 /* GroupViewController.swift in Sources */,
+				E30EA325253B0D6A00CA71F2 /* GroupListCell.swift in Sources */,
 				E3CCE761251FE051000A0FDE /* ViewController.swift in Sources */,
 				E3CCE75D251FE051000A0FDE /* AppDelegate.swift in Sources */,
 				E31527242522904C002770ED /* ProfileViewController.swift in Sources */,
 				E3E0582E2528A001002B888B /* LoginViewController.swift in Sources */,
 				E3E058392528D06C002B888B /* UserPhotoViewController.swift in Sources */,
 				E3E058342528D045002B888B /* FriendsViewController.swift in Sources */,
-				E3C185E12528E10B002D7F63 /* MessagesViewController.swift in Sources */,
+				E30EA3182539F33900CA71F2 /* GroupStruct.swift in Sources */,
+				E30EA31025363F9400CA71F2 /* UserStruct.swift in Sources */,
+				E30EA307253621DE00CA71F2 /* FriendListCell.swift in Sources */,
 				E3CCE75F251FE051000A0FDE /* SceneDelegate.swift in Sources */,
 				E3C185E62528E11D002D7F63 /* SettingsViewController.swift in Sources */,
 			);
@@ -472,6 +504,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HM37P8L339;
 				INFOPLIST_FILE = "VK App/Info.plist";
@@ -481,6 +514,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "tech.hiwawa.VK-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -491,6 +525,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HM37P8L339;
 				INFOPLIST_FILE = "VK App/Info.plist";
@@ -500,6 +535,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "tech.hiwawa.VK-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
