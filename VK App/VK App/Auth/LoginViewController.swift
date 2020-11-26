@@ -8,6 +8,14 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    class Session {
+        static let instance = Session()
+        private init() {}
+        
+        var toket: String = ""
+        var userId: Int = 0
+    }
 
     @IBOutlet weak var userField: UITextField!
     
@@ -18,20 +26,21 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButton(_ sender: Any) {
         
-        if userField.text == "test" && passwordField.text == "test" {
-            statusLabel.textColor = .green
-            statusLabel.text = "Вы вошли"
-            performSegue(withIdentifier: "goProfile", sender: self)
-            
-        } else {
-            statusLabel.textColor = .red
-            statusLabel.text = "Ошибка авторизации"
-        }
+        performSegue(withIdentifier: "goProfile", sender: self)
+//        if userField.text == "test" && passwordField.text == "test" {
+//            statusLabel.textColor = .green
+//            statusLabel.text = "Вы вошли"
+//            performSegue(withIdentifier: "goProfile", sender: self)
+//
+//        } else {
+//            statusLabel.textColor = .red
+//            statusLabel.text = "Ошибка авторизации"
+//        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let session = Session.instance
         // Do any additional setup after loading the view.
     }
     

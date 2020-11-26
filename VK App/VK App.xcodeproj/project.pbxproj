@@ -13,6 +13,10 @@
 		E30EA3202539F80D00CA71F2 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EA31F2539F80D00CA71F2 /* GroupViewController.swift */; };
 		E30EA325253B0D6A00CA71F2 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EA324253B0D6900CA71F2 /* GroupListCell.swift */; };
 		E31527242522904C002770ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31527232522904C002770ED /* ProfileViewController.swift */; };
+		E3433843254EC49E00CD199E /* ProfileNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3433842254EC49D00CD199E /* ProfileNewsCell.swift */; };
+		E39D6F7C2547739C00812A9D /* NewsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D6F7B2547739C00812A9D /* NewsStruct.swift */; };
+		E39D6F842547741600812A9D /* ArticleStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D6F832547741600812A9D /* ArticleStruct.swift */; };
+		E39D6F89254774A100812A9D /* SourceStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D6F88254774A100812A9D /* SourceStruct.swift */; };
 		E3C185E62528E11D002D7F63 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C185E52528E11D002D7F63 /* SettingsViewController.swift */; };
 		E3CCE75D251FE051000A0FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE75C251FE051000A0FDE /* AppDelegate.swift */; };
 		E3CCE75F251FE051000A0FDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE75E251FE051000A0FDE /* SceneDelegate.swift */; };
@@ -50,6 +54,10 @@
 		E30EA31F2539F80D00CA71F2 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		E30EA324253B0D6900CA71F2 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		E31527232522904C002770ED /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E3433842254EC49D00CD199E /* ProfileNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNewsCell.swift; sourceTree = "<group>"; };
+		E39D6F7B2547739C00812A9D /* NewsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStruct.swift; sourceTree = "<group>"; };
+		E39D6F832547741600812A9D /* ArticleStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleStruct.swift; sourceTree = "<group>"; };
+		E39D6F88254774A100812A9D /* SourceStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceStruct.swift; sourceTree = "<group>"; };
 		E3C185E52528E11D002D7F63 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E3CCE759251FE051000A0FDE /* VK App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CCE75C251FE051000A0FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +107,7 @@
 			children = (
 				E30EA306253621DE00CA71F2 /* FriendListCell.swift */,
 				E30EA324253B0D6900CA71F2 /* GroupListCell.swift */,
+				E3433842254EC49D00CD199E /* ProfileNewsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -108,6 +117,9 @@
 			children = (
 				E30EA30F25363F9400CA71F2 /* UserStruct.swift */,
 				E30EA3172539F33900CA71F2 /* GroupStruct.swift */,
+				E39D6F7B2547739C00812A9D /* NewsStruct.swift */,
+				E39D6F832547741600812A9D /* ArticleStruct.swift */,
+				E39D6F88254774A100812A9D /* SourceStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,6 +338,7 @@
 			files = (
 				E30EA3202539F80D00CA71F2 /* GroupViewController.swift in Sources */,
 				E30EA325253B0D6A00CA71F2 /* GroupListCell.swift in Sources */,
+				E39D6F842547741600812A9D /* ArticleStruct.swift in Sources */,
 				E3CCE761251FE051000A0FDE /* ViewController.swift in Sources */,
 				E3CCE75D251FE051000A0FDE /* AppDelegate.swift in Sources */,
 				E31527242522904C002770ED /* ProfileViewController.swift in Sources */,
@@ -334,9 +347,12 @@
 				E3E058342528D045002B888B /* FriendsViewController.swift in Sources */,
 				E30EA3182539F33900CA71F2 /* GroupStruct.swift in Sources */,
 				E30EA31025363F9400CA71F2 /* UserStruct.swift in Sources */,
+				E39D6F89254774A100812A9D /* SourceStruct.swift in Sources */,
+				E39D6F7C2547739C00812A9D /* NewsStruct.swift in Sources */,
 				E30EA307253621DE00CA71F2 /* FriendListCell.swift in Sources */,
 				E3CCE75F251FE051000A0FDE /* SceneDelegate.swift in Sources */,
 				E3C185E62528E11D002D7F63 /* SettingsViewController.swift in Sources */,
+				E3433843254EC49E00CD199E /* ProfileNewsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

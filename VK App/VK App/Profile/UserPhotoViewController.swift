@@ -8,6 +8,17 @@
 import UIKit
 
 class UserPhotoViewController: UICollectionViewController {
+    
+    var photoArray = [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
