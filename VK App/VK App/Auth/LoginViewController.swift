@@ -6,53 +6,67 @@
 //
 
 import UIKit
+import Alamofire
+import WebKit
 
-class LoginViewController: UIViewController {
-    
-    class Session {
-        static let instance = Session()
-        private init() {}
-        
-        var toket: String = ""
-        var userId: Int = 0
-    }
 
-    @IBOutlet weak var userField: UITextField!
+class LoginViewController: UIViewController, WKNavigationDelegate {
     
-    @IBOutlet weak var passwordField: UITextField!
-    
-    @IBOutlet weak var statusLabel: UILabel!
-        
-    
-    @IBAction func loginButton(_ sender: Any) {
-        
-        performSegue(withIdentifier: "goProfile", sender: self)
-//        if userField.text == "test" && passwordField.text == "test" {
-//            statusLabel.textColor = .green
-//            statusLabel.text = "Вы вошли"
-//            performSegue(withIdentifier: "goProfile", sender: self)
-//
-//        } else {
-//            statusLabel.textColor = .red
-//            statusLabel.text = "Ошибка авторизации"
-//        }
+    @IBOutlet weak var vkLogin: WKWebView! {
+        didSet {
+            vkLogin.navigationDelegate = self
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let session = Session.instance
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "oauth.vk.com"
+        urlComponents.path = "/authorize"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "client_id", value: "7689036"),
+            URLQueryItem(name: "display", value: "mobile"),
+            URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
+            URLQueryItem(name: "scope", value: "336902"),
+            URLQueryItem(name: "response_type", value: "token"),
+            URLQueryItem(name: "v", value: "5.126")
+        ]
+        
+        let request = URLRequest(url: urlComponents.url!)
+        
+        vkLogin.load(request)
         // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func vkLogin(_ vkLogin: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        
+        guard let url = navigationResponse.response.url, url.path == "/blank.html", let fragment = url.fragment  else {
+            decisionHandler(.allow)
+            return
+        }
+        
+        let params = fragment
+            .components(separatedBy: "&")
+            .map { $0.components(separatedBy: "=") }
+            .reduce([String: String]()) { result, param in
+                var dict = result
+                let key = param[0]
+                let value = param[1]
+                dict[key] = value
+                return dict
+            }
+        
+        let token = params["access_token"]
+        print("token is:")
+        print(token)
+        
+        decisionHandler(.cancel)
     }
-    */
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
 
 }
