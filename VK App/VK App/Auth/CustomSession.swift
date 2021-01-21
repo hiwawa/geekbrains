@@ -8,10 +8,35 @@
 import Foundation
 import Alamofire
 
-extension Session {
-    static let custom: Session = {
-        let configuration = URLSessionConfiguration.default
-        let sessionManager = Session(configuration: configuration)
-        return sessionManager
+class CustomSession {
+    static let session: Session = {
+        let session = URLSessionConfiguration()
+        session.timeoutIntervalForRequest = 60
+        let afSession = Session(configuration: session)
+        return afSession
     }()
+    
+    static let shared = CustomSession()
+    public var token: String = ""
+    
+    
+    static func loadGroups(token: String) {
+        let baseUrl = "https://api.vk.com"
+        let path = "/method/groups.get"
+        
+        let params: Parameters = [
+            "access_token": token,
+            "extended": 1,
+            "v": "5.126"
+        ]
+        
+        CustomSession.session.request(baseUrl + path,
+                                       method: .get,
+                                       parameters: params)
+            .responseJSON { response in
+            guard let json = response.value else { return }
+            print(json)
+        }
+    }
+
 }

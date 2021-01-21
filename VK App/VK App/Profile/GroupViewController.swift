@@ -28,7 +28,8 @@ class GroupViewController: UIViewController {
         groupList.backgroundColor = UIColor.white
         groupList.delegate = self
         groupList.dataSource = self
-
+        
+        CustomSession.loadGroups(token: CustomSession.shared.token)
         // Do any additional setup after loading the view.
     }
     

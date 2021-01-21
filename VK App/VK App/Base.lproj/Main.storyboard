@@ -411,7 +411,7 @@
         <!--Group View Controller-->
         <scene sceneID="XrD-H8-3TG">
             <objects>
-                <viewController id="elM-e1-csM" customClass="GroupViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupViewController" id="elM-e1-csM" customClass="GroupViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ad-o2-TS4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

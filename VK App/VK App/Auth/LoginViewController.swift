@@ -10,7 +10,7 @@ import Alamofire
 import WebKit
 
 
-class LoginViewController: UIViewController, WKNavigationDelegate {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var vkLogin: WKWebView! {
         didSet {
@@ -39,13 +39,17 @@ class LoginViewController: UIViewController, WKNavigationDelegate {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
 
-    func vkLogin(_ vkLogin: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        
-        guard let url = navigationResponse.response.url, url.path == "/blank.html", let fragment = url.fragment  else {
-            decisionHandler(.allow)
-            return
-        }
+}
+
+extension LoginViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        guard let url = navigationResponse.response.url,
+            url.path == "/blank.html",
+            let fragment = url.fragment else { decisionHandler(.allow); return }
         
         let params = fragment
             .components(separatedBy: "&")
@@ -56,17 +60,25 @@ class LoginViewController: UIViewController, WKNavigationDelegate {
                 let value = param[1]
                 dict[key] = value
                 return dict
-            }
+        }
         
-        let token = params["access_token"]
-        print("token is:")
-        print(token)
+        print(params)
+        
+        guard let token = params["access_token"],
+            let userIdString = params["user_id"],
+            let _ = Int(userIdString) else {
+                decisionHandler(.allow)
+                return
+        }
+        
+        CustomSession.shared.token = token
+        //performSegue(withIdentifier:"goProfile", sender: nil)
+        
+        CustomSession.loadGroups(token: CustomSession.shared.token)
+        
+        
         
         decisionHandler(.cancel)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
 
 }
