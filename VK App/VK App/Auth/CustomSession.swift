@@ -30,13 +30,12 @@ class CustomSession {
             "v": "5.126"
         ]
         
-        CustomSession.session.request(baseUrl + path,
-                                       method: .get,
-                                       parameters: params)
-            .responseJSON { response in
-            guard let json = response.value else { return }
-            print(json)
-        }
+        AF.request(baseUrl + path,
+                   method: .get,
+                   parameters: params)
+            .responseJSON { json in
+                print(json)
+            }
     }
 
 }
