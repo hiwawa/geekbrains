@@ -17,6 +17,7 @@
 		E30EA325253B0D6A00CA71F2 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EA324253B0D6900CA71F2 /* GroupListCell.swift */; };
 		E31527242522904C002770ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31527232522904C002770ED /* ProfileViewController.swift */; };
 		E3433843254EC49E00CD199E /* ProfileNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3433842254EC49D00CD199E /* ProfileNewsCell.swift */; };
+		E3433EA425BC6823009145C9 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3433EA325BC6823009145C9 /* ApiRequest.swift */; };
 		E39D6F7C2547739C00812A9D /* NewsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D6F7B2547739C00812A9D /* NewsStruct.swift */; };
 		E39D6F842547741600812A9D /* ArticleStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D6F832547741600812A9D /* ArticleStruct.swift */; };
 		E39D6F89254774A100812A9D /* SourceStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D6F88254774A100812A9D /* SourceStruct.swift */; };
@@ -28,7 +29,7 @@
 		E3CCE766251FE054000A0FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CCE765251FE054000A0FDE /* Assets.xcassets */; };
 		E3CCE774251FE054000A0FDE /* VK_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE773251FE054000A0FDE /* VK_AppTests.swift */; };
 		E3CCE77F251FE054000A0FDE /* VK_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE77E251FE054000A0FDE /* VK_AppUITests.swift */; };
-		E3DEB360259642F9009D2F7B /* CustomSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DEB35F259642F9009D2F7B /* CustomSession.swift */; };
+		E3DEB360259642F9009D2F7B /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DEB35F259642F9009D2F7B /* NetworkSession.swift */; };
 		E3E0582E2528A001002B888B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0582D2528A001002B888B /* LoginViewController.swift */; };
 		E3E058342528D045002B888B /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E058332528D045002B888B /* FriendsViewController.swift */; };
 		E3E058392528D06C002B888B /* UserPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E058382528D06C002B888B /* UserPhotoViewController.swift */; };
@@ -67,6 +68,7 @@
 		E30EA324253B0D6900CA71F2 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		E31527232522904C002770ED /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E3433842254EC49D00CD199E /* ProfileNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNewsCell.swift; sourceTree = "<group>"; };
+		E3433EA325BC6823009145C9 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		E39D6F7B2547739C00812A9D /* NewsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStruct.swift; sourceTree = "<group>"; };
 		E39D6F832547741600812A9D /* ArticleStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleStruct.swift; sourceTree = "<group>"; };
 		E39D6F88254774A100812A9D /* SourceStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceStruct.swift; sourceTree = "<group>"; };
@@ -84,7 +86,7 @@
 		E3CCE77A251FE054000A0FDE /* VK AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VK AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CCE77E251FE054000A0FDE /* VK_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_AppUITests.swift; sourceTree = "<group>"; };
 		E3CCE780251FE054000A0FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E3DEB35F259642F9009D2F7B /* CustomSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSession.swift; sourceTree = "<group>"; };
+		E3DEB35F259642F9009D2F7B /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		E3E0582D2528A001002B888B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E3E058332528D045002B888B /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		E3E058382528D06C002B888B /* UserPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoViewController.swift; sourceTree = "<group>"; };
@@ -164,11 +166,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E3433EA225BC67CB009145C9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E3DEB35F259642F9009D2F7B /* NetworkSession.swift */,
+				E3433EA325BC6823009145C9 /* ApiRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		E38B14D5252897560096F09C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				E3E0582D2528A001002B888B /* LoginViewController.swift */,
-				E3DEB35F259642F9009D2F7B /* CustomSession.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -207,6 +217,7 @@
 		E3CCE75B251FE051000A0FDE /* VK App */ = {
 			isa = PBXGroup;
 			children = (
+				E3433EA225BC67CB009145C9 /* Network */,
 				E3E058322528D029002B888B /* Profile */,
 				E38B14D7252897870096F09C /* System */,
 				E38B14D5252897560096F09C /* Auth */,
@@ -488,7 +499,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E30EA3202539F80D00CA71F2 /* GroupViewController.swift in Sources */,
-				E3DEB360259642F9009D2F7B /* CustomSession.swift in Sources */,
+				E3DEB360259642F9009D2F7B /* NetworkSession.swift in Sources */,
+				E3433EA425BC6823009145C9 /* ApiRequest.swift in Sources */,
 				E30EA325253B0D6A00CA71F2 /* GroupListCell.swift in Sources */,
 				E39D6F842547741600812A9D /* ArticleStruct.swift in Sources */,
 				E3CCE761251FE051000A0FDE /* ViewController.swift in Sources */,

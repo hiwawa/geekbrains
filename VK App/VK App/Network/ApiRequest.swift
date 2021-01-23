@@ -1,23 +1,14 @@
 //
-//  CustomSession.swift
+//  ApiRequests.swift
 //  VK App
 //
-//  Created by Aleksander Pankow on 25/12/2020.
+//  Created by Aleksander Pankow on 23/01/2021.
 //
 
 import Foundation
 import Alamofire
 
-class CustomSession {
-    static let session: Session = {
-        let session = URLSessionConfiguration()
-        session.timeoutIntervalForRequest = 60
-        let afSession = Session(configuration: session)
-        return afSession
-    }()
-    
-    static let shared = CustomSession()
-    public var token: String = ""
+class ApiRequest: NetworkSession {
     
     //Get Groups
     static func loadGroups(token: String) {
@@ -77,7 +68,5 @@ class CustomSession {
                 print(json)
             }
     }
-    
-    
 
 }

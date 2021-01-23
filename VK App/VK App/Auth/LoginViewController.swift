@@ -71,11 +71,9 @@ extension LoginViewController: WKNavigationDelegate {
                 return
         }
         
-        CustomSession.shared.token = token
+        NetworkSession.shared.token = token
         //performSegue(withIdentifier:"goProfile", sender: nil)
-        //CustomSession.loadFriends(token: CustomSession.shared.token)
-        //CustomSession.loadGroups(token: CustomSession.shared.token)
-        CustomSession.loadGroupsKey(token: CustomSession.shared.token, query: "Гер")
+        ApiRequest.loadGroupsKey(token: NetworkSession.shared.token, query: "Гер")
         
         
         
