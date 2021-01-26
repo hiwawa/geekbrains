@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FriendListCell: UITableViewCell {
 
@@ -34,5 +35,15 @@ class FriendListCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
+    func configure(with friend: ShortUserModel) {
+            let url = URL(string: "\(friend.photo)")
+            userPhoto.kf.setImage(with: url)
+            if friend.online == 1 {
+                status.text = String("В сети")
+                status.textColor = .green
+            } else { status.text = String("Не в сети") }
+            friendName.text = String("\(friend.firstname) \(friend.lastname)")
+        }
 
 }

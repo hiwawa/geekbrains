@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GroupListCell: UITableViewCell {
 
@@ -22,5 +23,11 @@ class GroupListCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configure(with group: ShortGroupModel) {
+            let url = URL(string: "\(group.logo)")
+            groupPhoto.kf.setImage(with: url)
+            groupName.text = String("\(group.name)")
+        }
 
 }

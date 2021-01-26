@@ -11,12 +11,7 @@ class GroupViewController: UIViewController {
     
     @IBOutlet weak var groupList: UITableView!
     
-    var groupArray = ["Официальное сообщество", "Музыка для всех", "Программирование SWIFT"]
-    var avatarImages: [UIImage] = [
-        UIImage(named: "user-ava.png")!,
-        UIImage(named: "user-avatar.png")!,
-        UIImage(named: "avatar-woman.png")!
-    ]
+    private var forecast = [ShortGroupModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +24,11 @@ class GroupViewController: UIViewController {
         groupList.delegate = self
         groupList.dataSource = self
         
-        CustomSession.loadGroups(token: CustomSession.shared.token)
+        ApiRequest.loadGroups(token: NetworkSession.shared.token) { [weak self]
+            groups in self?.forecast = groups
+            self?.groupList.reloadData()
+        }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -37,15 +36,14 @@ class GroupViewController: UIViewController {
 
 extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groupArray.count
+        return forecast.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell") as! GroupListCell
  
         cell.backgroundColor = .white
-        cell.groupName.text = groupArray[indexPath.row]
-        cell.groupPhoto.image = avatarImages.randomElement()
+        cell.configure(with: forecast[indexPath.row])
         return cell
     }
     
@@ -53,7 +51,7 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
             // Если была нажата кнопка «Удалить»
             if editingStyle == .delete {
             // Удаляем город из массива
-                groupArray.remove(at: indexPath.row)
+                forecast.remove(at: indexPath.row)
             // И удаляем строку из таблицы
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }

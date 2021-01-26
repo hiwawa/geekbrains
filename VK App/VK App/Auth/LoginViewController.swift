@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import WebKit
+import SwiftyJSON
 
 
 class LoginViewController: UIViewController {
@@ -72,10 +73,8 @@ extension LoginViewController: WKNavigationDelegate {
         }
         
         NetworkSession.shared.token = token
-        //performSegue(withIdentifier:"goProfile", sender: nil)
-        ApiRequest.loadGroupsKey(token: NetworkSession.shared.token, query: "Гер")
-        
-        
+        performSegue(withIdentifier:"goProfile", sender: nil)
+        //ApiRequest.loadFriends(token: NetworkSession.shared.token)
         
         decisionHandler(.cancel)
     }

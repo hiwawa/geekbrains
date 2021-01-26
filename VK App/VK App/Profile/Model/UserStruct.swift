@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftyJSON
+
 
 class UserModel {
     let username: String
@@ -25,5 +27,23 @@ class UserModel {
         self.phone = phone
         self.dateofbirth = dateofbirth
         self.email = email
+    }
+}
+
+class ShortUserModel {
+    let firstname: String
+    let lastname: String
+    let photo: String
+    let online: Int
+    let id: Int
+    
+    init(_ json:JSON) {
+        
+        self.firstname = json["first_name"].stringValue
+        self.lastname = json["last_name"].stringValue
+        self.photo = json["photo_50"].stringValue
+        self.online = json["online"].intValue
+        self.id = json["id"].intValue
+
     }
 }

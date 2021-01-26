@@ -12,16 +12,7 @@ class FriendsViewController: UIViewController {
     @IBOutlet weak var addFriend: UIBarButtonItem!
     @IBOutlet var friendList: UITableView!
     
-    var friendsArray = ["Иван Иванов", "Алексей Семенов", "Екатерина Зайцева"]
-    var statusArray = ["Онлайн", "Оффлайн"]
-    var avatarImages: [UIImage] = [
-        //UIImage(named: "user-ava.png")!,
-        UIImage(named: "user-avatar.png")!,
-        UIImage(named: "avatar-woman.png")!
-    ]
-    
-    
-    //var count: Int
+    private var forecast = [ShortUserModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +27,10 @@ class FriendsViewController: UIViewController {
         friendList.delegate = self
         friendList.dataSource = self
         
-        //var count = self.friendsArray.count
+        ApiRequest.loadFriends(token: NetworkSession.shared.token) { [weak self]
+            friends in self?.forecast = friends
+            self?.friendList.reloadData()
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -44,26 +38,22 @@ class FriendsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             guard segue.identifier == "ProfileViewController" else { return }
             guard let destination = segue.destination as? ProfileViewController else { return }
-            destination.count = "\(friendsArray.count)"
+            destination.count = "\(forecast.count)"
     }
 
 }
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendsArray.count
+        return forecast.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as! FriendListCell
- 
-        cell.friendName.text = friendsArray[indexPath.row]
-        cell.status.text = statusArray.randomElement()
         cell.backgroundColor = .white
-        if cell.status.text == "Онлайн" {
-            cell.status.textColor = .green
-        }
-        cell.userPhoto.image = avatarImages.randomElement()
+        
+        cell.configure(with: forecast[indexPath.row])
+
         return cell
     }
     

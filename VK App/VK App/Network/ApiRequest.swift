@@ -7,11 +7,12 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class ApiRequest: NetworkSession {
     
     //Get Groups
-    static func loadGroups(token: String) {
+    static func loadGroups(token: String, completion: @escaping ([ShortGroupModel]) -> Void) {
         let baseUrl = "https://api.vk.com"
         let path = "/method/groups.get"
         
@@ -24,8 +25,19 @@ class ApiRequest: NetworkSession {
         AF.request(baseUrl + path,
                    method: .get,
                    parameters: params)
-            .responseJSON { json in
-                print(json)
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    let json = JSON(data)
+                    let groupsJSON = json["response"]["items"].arrayValue
+                    let groups = groupsJSON.compactMap { ShortGroupModel($0) }
+                    completion(groups)
+                    //groups.forEach { print("\($0.id) \($0.name)") }
+                    
+                case .failure(let error) :
+                    print(error)
+                }
+                
             }
     }
     
@@ -51,21 +63,32 @@ class ApiRequest: NetworkSession {
     }
     
     //Get Friends
-    static func loadFriends(token: String) {
+    static func loadFriends(token: String, completion: @escaping ([ShortUserModel]) -> Void) {
         let baseUrl = "https://api.vk.com"
         let path = "/method/friends.get"
         
         let params: Parameters = [
             "access_token": token,
             "extended": 1,
-            "v": "5.126"
+            "v": "5.126",
+            "fields": "id,name,online,photo_50"
         ]
         
         AF.request(baseUrl + path,
                    method: .get,
                    parameters: params)
-            .responseJSON { json in
-                print(json)
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    let json = JSON(data)
+                    let friendsJSON = json["response"]["items"].arrayValue
+                    let friends = friendsJSON.compactMap { ShortUserModel($0) }
+                    completion(friends)
+
+                case .failure(let error) :
+                    print(error)
+                }
+                
             }
     }
 
