@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendsViewController: UIViewController {
 
     @IBOutlet weak var addFriend: UIBarButtonItem!
     @IBOutlet var friendList: UITableView!
     
-    private var forecast = [ShortUserModel]()
+    //private var forecast = [ShortUserModel]()
+    private lazy var friends = try? Realm().objects(FriendList.self)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +31,7 @@ class FriendsViewController: UIViewController {
         friendList.dataSource = self
         
         ApiRequest.loadFriends(token: NetworkSession.shared.token) { [weak self]
-            friends in self?.forecast = friends
+            friends in try? RealmService.save(items: friends)
             self?.friendList.reloadData()
         }
         
@@ -38,21 +41,23 @@ class FriendsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             guard segue.identifier == "ProfileViewController" else { return }
             guard let destination = segue.destination as? ProfileViewController else { return }
-            destination.count = "\(forecast.count)"
+            //destination.count = "\(forecast.count)"
     }
 
 }
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return forecast.count
+        return friends?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as! FriendListCell
+        let friend = friends?[indexPath.item]
+        cell.configure(with: friend)
         cell.backgroundColor = .white
         
-        cell.configure(with: forecast[indexPath.row])
+        
 
         return cell
     }

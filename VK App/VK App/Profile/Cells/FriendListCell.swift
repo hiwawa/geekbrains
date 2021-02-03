@@ -36,7 +36,7 @@ class FriendListCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(with friend: ShortUserModel) {
+    func configure(with friend: FriendList) {
             let url = URL(string: "\(friend.photo)")
             userPhoto.kf.setImage(with: url)
             if friend.online == 1 {

@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 class ApiRequest: NetworkSession {
     
@@ -63,7 +64,7 @@ class ApiRequest: NetworkSession {
     }
     
     //Get Friends
-    static func loadFriends(token: String, completion: @escaping ([ShortUserModel]) -> Void) {
+    static func loadFriends(token: String, completion: @escaping ([FriendList]) -> Void) {
         let baseUrl = "https://api.vk.com"
         let path = "/method/friends.get"
         
@@ -82,7 +83,8 @@ class ApiRequest: NetworkSession {
                 case .success(let data):
                     let json = JSON(data)
                     let friendsJSON = json["response"]["items"].arrayValue
-                    let friends = friendsJSON.compactMap { ShortUserModel($0) }
+                    let friends = friendsJSON.compactMap { FriendList($0) }
+                    
                     completion(friends)
 
                 case .failure(let error) :
@@ -90,6 +92,7 @@ class ApiRequest: NetworkSession {
                 }
                 
             }
+
     }
 
 }
