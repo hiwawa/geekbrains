@@ -7,26 +7,33 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
-struct GroupModel {
-    var id: Int
-    var name: String
+class GroupList: Object {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var name: String = ""
+    @objc dynamic var logo: String = ""
     
-    
-    init(_ json:JSON) {
+    convenience init(_ json:JSON)
+    {
+        self.init()
         self.id = json["id"].intValue
         self.name = json["name"].stringValue
+        self.logo = json["photo_200"].stringValue
+    }
+    override class func primaryKey() -> String? {
+        "id"
     }
 }
 
-struct ShortGroupModel {
-    var id: Int
-    var name: String
-    var logo: String
-    
-    init(_ json:JSON) {
-        self.id = json["id"].intValue
-        self.name = json["name"].stringValue
-        self.logo = json["photo_100"].stringValue
-    }
-}
+//struct GroupModel {
+//    var id: Int
+//    var name: String
+//    var logo: String
+//
+//    init(_ json:JSON) {
+//        self.id = json["id"].intValue
+//        self.name = json["name"].stringValue
+//        self.logo = json["photo_200"].stringValue
+//    }
+//}

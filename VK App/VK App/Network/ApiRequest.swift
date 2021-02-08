@@ -13,13 +13,14 @@ import RealmSwift
 class ApiRequest: NetworkSession {
     
     //Get Groups
-    static func loadGroups(token: String, completion: @escaping ([ShortGroupModel]) -> Void) {
+    static func loadGroups(token: String, id: Int..., completion: @escaping ([GroupList]) -> Void) {
         let baseUrl = "https://api.vk.com"
         let path = "/method/groups.get"
         
         let params: Parameters = [
             "access_token": token,
             "extended": 1,
+            "user_id": id,
             "v": "5.126"
         ]
         
@@ -31,9 +32,8 @@ class ApiRequest: NetworkSession {
                 case .success(let data):
                     let json = JSON(data)
                     let groupsJSON = json["response"]["items"].arrayValue
-                    let groups = groupsJSON.compactMap { ShortGroupModel($0) }
+                    let groups = groupsJSON.compactMap { GroupList($0) }
                     completion(groups)
-                    //groups.forEach { print("\($0.id) \($0.name)") }
                     
                 case .failure(let error) :
                     print(error)
@@ -72,7 +72,7 @@ class ApiRequest: NetworkSession {
             "access_token": token,
             "extended": 1,
             "v": "5.126",
-            "fields": "id,name,online,photo_50"
+            "fields": "id,name,online,photo_200"
         ]
         
         AF.request(baseUrl + path,
@@ -86,6 +86,37 @@ class ApiRequest: NetworkSession {
                     let friends = friendsJSON.compactMap { FriendList($0) }
                     
                     completion(friends)
+
+                case .failure(let error) :
+                    print(error)
+                }
+                
+            }
+
+    }
+    //Get User
+    static func loadUser(token: String, completion: @escaping ([UserModel]) -> Void) {
+        let baseUrl = "https://api.vk.com"
+        let path = "/method/users.get"
+        
+        let params: Parameters = [
+            "access_token": token,
+            "extended": 1,
+            "v": "5.126",
+            "fields": "first_name, last_name, photo_400_orig, domain, screen_name"
+        ]
+        
+        AF.request(baseUrl + path,
+                   method: .get,
+                   parameters: params)
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    let json = JSON(data)
+                    let userJSON = json["response"].arrayValue
+                    let user = userJSON.compactMap { UserModel($0) }
+                    //print(user)
+                    completion(user)
 
                 case .failure(let error) :
                     print(error)

@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
+import SwiftyJSON
+import Kingfisher
 
 class ProfileViewController: UIViewController {
     
-    var user = UserModel(username: "outplay", password: "test", firstname: "Aleksander", lastname: "Pankow", phone: "884730857", dateofbirth: "18.04.1992", email: "aleksander.pankow@icloud.com")
+    private lazy var user = try? Realm().objects(UserModel.self)
     
     var activity = [
         [1, "like"],
@@ -31,18 +34,36 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var friendsCount: UILabel!
     @IBOutlet weak var groupCount: UILabel!
+    @IBOutlet weak var userPhoto: UIImageView!
     
     var count = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
            //let session = Session.instance
-            nameLabel.text = "\(user.firstname) \(user.lastname)"
-            usernameLabel.text = "@\(user.username)"
+            
+            ApiRequest.loadUser(token: NetworkSession.shared.token) { [weak self]
+                user in try? RealmService.save(items: user)
+                self?.nameLabel.text = "\(user[0].firstname) \(user[0].lastname)"
+                self?.usernameLabel.text = "@\(user[0].nickname)"
+                self?.userPhoto.kf.setImage(with: URL(string: user[0].photo))
+            }
+        
+            userPhoto.setRounded()
+        
             ProfileNewsList.delegate = self
             ProfileNewsList.dataSource = self
     }
 
+}
+
+extension UIImageView {
+
+   func setRounded() {
+        self.layer.cornerRadius = self.frame.width / 2;
+        self.layer.masksToBounds = true
+        self.contentMode = .scaleAspectFill
+   }
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{

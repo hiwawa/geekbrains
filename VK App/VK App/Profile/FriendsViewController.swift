@@ -12,8 +12,7 @@ class FriendsViewController: UIViewController {
 
     @IBOutlet weak var addFriend: UIBarButtonItem!
     @IBOutlet var friendList: UITableView!
-    
-    //private var forecast = [ShortUserModel]()
+
     private lazy var friends = try? Realm().objects(FriendList.self)
     
     
@@ -26,7 +25,6 @@ class FriendsViewController: UIViewController {
         
         
         friendList.backgroundColor = UIColor.white
-        
         friendList.delegate = self
         friendList.dataSource = self
         
@@ -41,7 +39,6 @@ class FriendsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             guard segue.identifier == "ProfileViewController" else { return }
             guard let destination = segue.destination as? ProfileViewController else { return }
-            //destination.count = "\(forecast.count)"
     }
 
 }
@@ -52,16 +49,15 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as! FriendListCell
-        let friend = friends?[indexPath.item]
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendListCell,
+            let friend = friends?[indexPath.item]
+            else { return UITableViewCell() }
+        
         cell.configure(with: friend)
         cell.backgroundColor = .white
         
-        
-
         return cell
     }
-    
-    
     
 }

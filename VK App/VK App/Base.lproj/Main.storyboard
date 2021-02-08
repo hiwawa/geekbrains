@@ -200,6 +200,7 @@
                     <connections>
                         <outlet property="ProfileNewsList" destination="wYn-Kk-zen" id="8A8-8a-D7o"/>
                         <outlet property="nameLabel" destination="44R-aZ-SlJ" id="tlE-4a-Zhj"/>
+                        <outlet property="userPhoto" destination="xPM-lv-MTb" id="uut-cV-Hq5"/>
                         <outlet property="usernameLabel" destination="6pz-aL-YZh" id="8uQ-pU-j5q"/>
                     </connections>
                 </viewController>
