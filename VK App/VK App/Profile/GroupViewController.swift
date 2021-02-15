@@ -13,8 +13,7 @@ class GroupViewController: UIViewController {
     @IBOutlet weak var groupList: UITableView!
     
     private lazy var groups = try? Realm().objects(GroupList.self)
-    
-    //private var forecast = [GroupModel]()
+    var realmtoken: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +31,33 @@ class GroupViewController: UIViewController {
             self?.groupList.reloadData()
         }
         
+        notification()
+        
         // Do any additional setup after loading the view.
     }
     
+    func notification() {
+        
+        self.realmtoken = groups?.observe {  (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial(let results):
+                print(results)
+            case let .update(results, deletions, insertions, modifications):
+                print(results,
+                      "удалено: \(deletions)",
+                      "добавлено: \(insertions)",
+                      "изменено:\(modifications)")
+            case .error(let error):
+                print(error)
+            }
+            print("Данные изменились")
+        }
+    }
+    
+    
 }
+
+    
 
 extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
