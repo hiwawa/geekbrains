@@ -21,7 +21,7 @@
             <Locations>
                <Location
                   uuid = "48AE4F0E-A08E-4302-B98F-9F9FA8D7BE0E - 28098a102a233192"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "VK_App.Article.init() -&gt; VK_App.Article"
@@ -36,7 +36,7 @@
                </Location>
                <Location
                   uuid = "48AE4F0E-A08E-4302-B98F-9F9FA8D7BE0E - 344c684c11639518"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "VK_App.Article.init(from: Swift.Decoder) throws -&gt; VK_App.Article"

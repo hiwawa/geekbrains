@@ -57,8 +57,6 @@ class GroupViewController: UIViewController {
     
 }
 
-    
-
 extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groups?.count ?? 0

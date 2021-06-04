@@ -4,7 +4,6 @@
 //
 //  Created by Aleksander Pankow on 01/11/2020.
 //
-
 import UIKit
 
 class ProfileNewsCell: UITableViewCell {
@@ -23,21 +22,21 @@ class ProfileNewsCell: UITableViewCell {
     @IBOutlet weak var NewsViewContainer: UIView!
     @IBOutlet weak var NewsCellShadow: UIView!
     
-    internal var aspectConstraint : NSLayoutConstraint? {
-            didSet {
-                if oldValue != nil {
-                    NewsCellPhoto.removeConstraint(oldValue!)
-                }
-                if aspectConstraint != nil {
-                    NewsCellPhoto.addConstraint(aspectConstraint!)
-                }
-            }
-        }
-
-        override func prepareForReuse() {
-            super.prepareForReuse()
-            aspectConstraint = nil
-        }
+//    internal var aspectConstraint : NSLayoutConstraint? {
+//            didSet {
+//                if oldValue != nil {
+//                    NewsCellPhoto.removeConstraint(oldValue!)
+//                }
+//                if aspectConstraint != nil {
+//                    NewsCellPhoto.addConstraint(aspectConstraint!)
+//                }
+//            }
+//        }
+//
+//        override func prepareForReuse() {
+//            super.prepareForReuse()
+//            aspectConstraint = nil
+//        }
     
     override func awakeFromNib() {
         super.awakeFromNib()

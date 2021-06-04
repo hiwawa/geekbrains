@@ -21,7 +21,6 @@ class FriendListCell: UITableViewCell {
         friendName.textColor = .black
         
         userPhoto.layer.cornerRadius = 30
-        //userPhoto.layer.backgroundColor = UIColor.white.cgColor
         photoShadow.layer.cornerRadius = 30
         photoShadow.layer.shadowColor = UIColor.black.cgColor
         photoShadow.layer.shadowOpacity = 0.8
@@ -42,7 +41,10 @@ class FriendListCell: UITableViewCell {
             if friend.online == 1 {
                 status.text = String("В сети")
                 status.textColor = .green
-            } else { status.text = String("Не в сети") }
+            } else {
+                status.text = String("Не в сети")
+                status.textColor = .gray
+            }
             friendName.text = String("\(friend.firstname) \(friend.lastname)")
         }
 

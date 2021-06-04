@@ -4,7 +4,6 @@
 //
 //  Created by Aleksander Pankow on 28/09/2020.
 //
-
 import UIKit
 import RealmSwift
 import SwiftyJSON
@@ -49,7 +48,7 @@ class ProfileViewController: UIViewController {
                 self?.userPhoto.kf.setImage(with: URL(string: user[0].photo))
             }
         
-            userPhoto.setRounded()
+            //userPhoto.setRounded()
         
             ProfileNewsList.delegate = self
             ProfileNewsList.dataSource = self
@@ -57,14 +56,6 @@ class ProfileViewController: UIViewController {
 
 }
 
-extension UIImageView {
-
-   func setRounded() {
-        self.layer.cornerRadius = self.frame.width / 2;
-        self.layer.masksToBounds = true
-        self.contentMode = .scaleAspectFill
-   }
-}
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

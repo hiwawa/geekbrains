@@ -14,17 +14,22 @@
 		E30EA3202539F80D00CA71F2 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EA31F2539F80D00CA71F2 /* GroupViewController.swift */; };
 		E30EA325253B0D6A00CA71F2 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EA324253B0D6900CA71F2 /* GroupListCell.swift */; };
 		E31527242522904C002770ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31527232522904C002770ED /* ProfileViewController.swift */; };
-		E3433843254EC49E00CD199E /* ProfileNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3433842254EC49D00CD199E /* ProfileNewsCell.swift */; };
+		E318D93E266A349C0072B395 /* MainWallStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E318D93D266A349C0072B395 /* MainWallStruct.swift */; };
+		E318D940266A357A0072B395 /* WallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E318D93F266A357A0072B395 /* WallViewController.swift */; };
+		E318D942266A40A50072B395 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CCE765251FE054000A0FDE /* Assets.xcassets */; };
+		E32AFB12266539200083C237 /* ProfileNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32AFB11266539200083C237 /* ProfileNewsCell.swift */; };
 		E3433EA425BC6823009145C9 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3433EA325BC6823009145C9 /* ApiRequest.swift */; };
 		E39D6F7C2547739C00812A9D /* NewsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D6F7B2547739C00812A9D /* NewsStruct.swift */; };
 		E39D6F842547741600812A9D /* ArticleStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D6F832547741600812A9D /* ArticleStruct.swift */; };
 		E39D6F89254774A100812A9D /* SourceStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D6F88254774A100812A9D /* SourceStruct.swift */; };
+		E3B1F8CE264AADC2003DAD14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3B1F8CD264AADC2003DAD14 /* GoogleService-Info.plist */; };
+		E3B1F8D0264AB5EE003DAD14 /* PhotoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B1F8CF264AB5EE003DAD14 /* PhotoStruct.swift */; };
+		E3B1F8D2264B3EC8003DAD14 /* PhotosListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B1F8D1264B3EC8003DAD14 /* PhotosListCell.swift */; };
 		E3C185E62528E11D002D7F63 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C185E52528E11D002D7F63 /* SettingsViewController.swift */; };
 		E3CCE75D251FE051000A0FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE75C251FE051000A0FDE /* AppDelegate.swift */; };
 		E3CCE75F251FE051000A0FDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE75E251FE051000A0FDE /* SceneDelegate.swift */; };
 		E3CCE761251FE051000A0FDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE760251FE051000A0FDE /* ViewController.swift */; };
 		E3CCE764251FE051000A0FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CCE762251FE051000A0FDE /* Main.storyboard */; };
-		E3CCE766251FE054000A0FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CCE765251FE054000A0FDE /* Assets.xcassets */; };
 		E3CCE774251FE054000A0FDE /* VK_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE773251FE054000A0FDE /* VK_AppTests.swift */; };
 		E3CCE77F251FE054000A0FDE /* VK_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCE77E251FE054000A0FDE /* VK_AppUITests.swift */; };
 		E3D2FB1825CAFCA500EEA939 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2FB1725CAFCA500EEA939 /* RealmService.swift */; };
@@ -61,11 +66,16 @@
 		E30EA31F2539F80D00CA71F2 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		E30EA324253B0D6900CA71F2 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		E31527232522904C002770ED /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		E3433842254EC49D00CD199E /* ProfileNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNewsCell.swift; sourceTree = "<group>"; };
+		E318D93D266A349C0072B395 /* MainWallStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWallStruct.swift; sourceTree = "<group>"; };
+		E318D93F266A357A0072B395 /* WallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallViewController.swift; sourceTree = "<group>"; };
+		E32AFB11266539200083C237 /* ProfileNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNewsCell.swift; sourceTree = "<group>"; };
 		E3433EA325BC6823009145C9 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		E39D6F7B2547739C00812A9D /* NewsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStruct.swift; sourceTree = "<group>"; };
 		E39D6F832547741600812A9D /* ArticleStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleStruct.swift; sourceTree = "<group>"; };
 		E39D6F88254774A100812A9D /* SourceStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceStruct.swift; sourceTree = "<group>"; };
+		E3B1F8CD264AADC2003DAD14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E3B1F8CF264AB5EE003DAD14 /* PhotoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStruct.swift; sourceTree = "<group>"; };
+		E3B1F8D1264B3EC8003DAD14 /* PhotosListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListCell.swift; sourceTree = "<group>"; };
 		E3C185E52528E11D002D7F63 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E3CCE759251FE051000A0FDE /* VK App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CCE75C251FE051000A0FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,7 +147,8 @@
 			children = (
 				E30EA306253621DE00CA71F2 /* FriendListCell.swift */,
 				E30EA324253B0D6900CA71F2 /* GroupListCell.swift */,
-				E3433842254EC49D00CD199E /* ProfileNewsCell.swift */,
+				E3B1F8D1264B3EC8003DAD14 /* PhotosListCell.swift */,
+				E32AFB11266539200083C237 /* ProfileNewsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -147,10 +158,12 @@
 			children = (
 				E30EA30F25363F9400CA71F2 /* UserStruct.swift */,
 				E30EA3172539F33900CA71F2 /* GroupStruct.swift */,
+				E318D93D266A349C0072B395 /* MainWallStruct.swift */,
 				E39D6F7B2547739C00812A9D /* NewsStruct.swift */,
 				E39D6F832547741600812A9D /* ArticleStruct.swift */,
 				E39D6F88254774A100812A9D /* SourceStruct.swift */,
 				E3D8A66F25C9E96C00B1D184 /* FriendsStruct.swift */,
+				E3B1F8CF264AB5EE003DAD14 /* PhotoStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,6 +228,7 @@
 				E3CCE760251FE051000A0FDE /* ViewController.swift */,
 				E3CCE76A251FE054000A0FDE /* Info.plist */,
 				E3CCE765251FE054000A0FDE /* Assets.xcassets */,
+				E3B1F8CD264AADC2003DAD14 /* GoogleService-Info.plist */,
 			);
 			path = "VK App";
 			sourceTree = "<group>";
@@ -245,6 +259,7 @@
 				E31527232522904C002770ED /* ProfileViewController.swift */,
 				E3E058332528D045002B888B /* FriendsViewController.swift */,
 				E3E058382528D06C002B888B /* UserPhotoViewController.swift */,
+				E318D93F266A357A0072B395 /* WallViewController.swift */,
 				E3C185E52528E11D002D7F63 /* SettingsViewController.swift */,
 				E30EA31F2539F80D00CA71F2 /* GroupViewController.swift */,
 			);
@@ -356,8 +371,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3CCE766251FE054000A0FDE /* Assets.xcassets in Resources */,
 				E3CCE764251FE051000A0FDE /* Main.storyboard in Resources */,
+				E318D942266A40A50072B395 /* Assets.xcassets in Resources */,
+				E3B1F8CE264AADC2003DAD14 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,9 +441,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E30EA3202539F80D00CA71F2 /* GroupViewController.swift in Sources */,
+				E318D93E266A349C0072B395 /* MainWallStruct.swift in Sources */,
 				E3DEB360259642F9009D2F7B /* NetworkSession.swift in Sources */,
 				E3433EA425BC6823009145C9 /* ApiRequest.swift in Sources */,
 				E30EA325253B0D6A00CA71F2 /* GroupListCell.swift in Sources */,
+				E32AFB12266539200083C237 /* ProfileNewsCell.swift in Sources */,
 				E39D6F842547741600812A9D /* ArticleStruct.swift in Sources */,
 				E3CCE761251FE051000A0FDE /* ViewController.swift in Sources */,
 				E3CCE75D251FE051000A0FDE /* AppDelegate.swift in Sources */,
@@ -437,14 +455,16 @@
 				E3D8A67025C9E96C00B1D184 /* FriendsStruct.swift in Sources */,
 				E3E058342528D045002B888B /* FriendsViewController.swift in Sources */,
 				E30EA3182539F33900CA71F2 /* GroupStruct.swift in Sources */,
+				E3B1F8D0264AB5EE003DAD14 /* PhotoStruct.swift in Sources */,
+				E318D940266A357A0072B395 /* WallViewController.swift in Sources */,
 				E30EA31025363F9400CA71F2 /* UserStruct.swift in Sources */,
 				E39D6F89254774A100812A9D /* SourceStruct.swift in Sources */,
 				E39D6F7C2547739C00812A9D /* NewsStruct.swift in Sources */,
 				E3D2FB1825CAFCA500EEA939 /* RealmService.swift in Sources */,
 				E30EA307253621DE00CA71F2 /* FriendListCell.swift in Sources */,
 				E3CCE75F251FE051000A0FDE /* SceneDelegate.swift in Sources */,
+				E3B1F8D2264B3EC8003DAD14 /* PhotosListCell.swift in Sources */,
 				E3C185E62528E11D002D7F63 /* SettingsViewController.swift in Sources */,
-				E3433843254EC49E00CD199E /* ProfileNewsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
