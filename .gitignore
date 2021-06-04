@@ -9,3 +9,5 @@ Lesson5/Lesson5.playground/contents.xcplayground
 Lesson5/Lesson5.playground/playground.xcworkspace/contents.xcworkspacedata
 Lesson5/Lesson5.playground/playground.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
 Lesson5/Lesson5.playground/playground.xcworkspace/xcuserdata/aleksanderpankow.xcuserdatad/UserInterfaceState.xcuserstate
+VK App/Pods/Realm/core/realm-monorepo.xcframework/watchos-armv7k_arm64_32/librealm-monorepo.a
+VK App/Pods/Realm/core/realm-monorepo.xcframework/watchos-arm64_i386_x86_64-simulator/librealm-monorepo.a
