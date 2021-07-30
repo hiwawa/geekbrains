@@ -28,9 +28,15 @@ class FriendsViewController: UIViewController {
         friendList.delegate = self
         friendList.dataSource = self
         
-        ApiRequest.loadFriends(token: NetworkSession.shared.token) { [weak self]
-            friends in try? RealmService.save(items: friends)
-            self?.friendList.reloadData()
+        DispatchQueue.global().async {
+        
+            ApiRequest.loadFriends(token: NetworkSession.shared.token) { [weak self]
+                friends in try? RealmService.save(items: friends)
+                DispatchQueue.main.async {
+                    self?.friendList.reloadData()
+                }
+            }
+            
         }
         
         // Do any additional setup after loading the view.

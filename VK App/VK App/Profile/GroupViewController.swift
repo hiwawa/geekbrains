@@ -26,9 +26,15 @@ class GroupViewController: UIViewController {
         groupList.delegate = self
         groupList.dataSource = self
         
-        ApiRequest.loadGroups(token: NetworkSession.shared.token) { [weak self]
-            groups in try? RealmService.save(items: groups)
-            self?.groupList.reloadData()
+        DispatchQueue.global().async {
+        
+            ApiRequest.loadGroups(token: NetworkSession.shared.token) { [weak self]
+                groups in try? RealmService.save(items: groups)
+                DispatchQueue.main.async {
+                    self?.groupList.reloadData()
+                }
+            }
+            
         }
         
         notification()
