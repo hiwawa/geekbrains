@@ -12,7 +12,8 @@ import Kingfisher
 
 class WallViewController: UIViewController {
 
-    @IBOutlet weak var WallTableView: UITableView!
+    
+    @IBOutlet weak var NewsTableView: UITableView!
     
     //@IBOutlet weak var WallTableView: UITableView!
     
@@ -27,8 +28,8 @@ class WallViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        WallTableView.delegate = self
-        WallTableView.dataSource = self
+        NewsTableView.delegate = self
+        NewsTableView.dataSource = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -48,15 +49,25 @@ extension WallViewController: UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WallTextCell") as! ProfileNewsCell
+        let cellPhoto = tableView.dequeueReusableCell(withIdentifier: "imageCell") as! NewsListCell
+//        let cellText = tableView.dequeueReusableCell(withIdentifier: "textCell") as! NewsListCell
+//        let cellAuthor = tableView.dequeueReusableCell(withIdentifier: "authorCell") as! NewsListCell
+//        let cellLike = tableView.dequeueReusableCell(withIdentifier: "likeCell") as! NewsListCell
 
-        cell.NewsCellPhoto.image = (newsArray[indexPath.row][2] as! UIImage)
-        cell.NewsCellText.textColor = .black
-        cell.LikeCount.text = "\(newsArray[indexPath.row][4])"
-        cell.RepostCount.text = "\(newsArray[indexPath.row][5])"
-        cell.NewsCellText.text = (newsArray[indexPath.row][3] as! String)
+        cellPhoto.PhotoNews.image = (newsArray[indexPath.row][2] as! UIImage)
+//        cellText.TextNews.textColor = .black
+//        cellText.TextNews.text = (newsArray[indexPath.row][3] as! String)
+//        cellAuthor.AuthorName.text = "Aleksander"
+//        cellAuthor.AuthorPhoto.image = (newsArray[indexPath.row][2] as! UIImage)
+//        cellAuthor.DateNews.text = "18.04.1992 в 18:00"
+//        cellLike.LikeCount.text = "\(newsArray[indexPath.row][4])"
+//        cellLike.CommentCount.text = "\(newsArray[indexPath.row][5])"
         
-        return cell
+        
+        return cellPhoto
+//        return cellText
+//        return cellAuthor
+//        return cellLike
     }
 
 
