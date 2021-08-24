@@ -24,16 +24,24 @@ class ApiRequest: NetworkSession {
             "v": "5.126"
         ]
         
+        let queue = DispatchQueue(
+            label: "com.groups.get",
+            qos: .background,
+            attributes: .concurrent
+        )
+        
         AF.request(baseUrl + path,
                    method: .get,
                    parameters: params)
-            .responseData { response in
+            .responseData(queue: queue) { response in
                 switch response.result {
                 case .success(let data):
                     let json = JSON(data)
                     let groupsJSON = json["response"]["items"].arrayValue
                     let groups = groupsJSON.compactMap { GroupList($0) }
-                    completion(groups)
+                    DispatchQueue.global().async {
+                        completion(groups)
+                    }
                     
                 case .failure(let error) :
                     print(error)

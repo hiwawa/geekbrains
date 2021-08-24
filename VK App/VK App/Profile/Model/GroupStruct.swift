@@ -26,6 +26,13 @@ class GroupList: Object {
     }
 }
 
+struct GroupModel {
+    let id: Int
+    let title: String
+    let logo: String
+}
+
+
 //struct GroupModel {
 //    var id: Int
 //    var name: String

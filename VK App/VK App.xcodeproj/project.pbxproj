@@ -20,6 +20,9 @@
 		E32AFB12266539200083C237 /* ProfileNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32AFB11266539200083C237 /* ProfileNewsCell.swift */; };
 		E3433EA425BC6823009145C9 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3433EA325BC6823009145C9 /* ApiRequest.swift */; };
 		E346DCBD26BC33E8002D29DC /* NewsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346DCBC26BC33E8002D29DC /* NewsListCell.swift */; };
+		E38541C126D558CB00780C57 /* GetDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38541C026D558CB00780C57 /* GetDataOperation.swift */; };
+		E38541C326D56F3300780C57 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38541C226D56F3300780C57 /* ParseData.swift */; };
+		E38541C526D5708000780C57 /* ReloadTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38541C426D5708000780C57 /* ReloadTableController.swift */; };
 		E39D6F7C2547739C00812A9D /* NewsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D6F7B2547739C00812A9D /* NewsStruct.swift */; };
 		E39D6F842547741600812A9D /* ArticleStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D6F832547741600812A9D /* ArticleStruct.swift */; };
 		E39D6F89254774A100812A9D /* SourceStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D6F88254774A100812A9D /* SourceStruct.swift */; };
@@ -72,6 +75,9 @@
 		E32AFB11266539200083C237 /* ProfileNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNewsCell.swift; sourceTree = "<group>"; };
 		E3433EA325BC6823009145C9 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		E346DCBC26BC33E8002D29DC /* NewsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListCell.swift; sourceTree = "<group>"; };
+		E38541C026D558CB00780C57 /* GetDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataOperation.swift; sourceTree = "<group>"; };
+		E38541C226D56F3300780C57 /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
+		E38541C426D5708000780C57 /* ReloadTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableController.swift; sourceTree = "<group>"; };
 		E39D6F7B2547739C00812A9D /* NewsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStruct.swift; sourceTree = "<group>"; };
 		E39D6F832547741600812A9D /* ArticleStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleStruct.swift; sourceTree = "<group>"; };
 		E39D6F88254774A100812A9D /* SourceStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceStruct.swift; sourceTree = "<group>"; };
@@ -181,6 +187,16 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		E38541BF26D558AC00780C57 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				E38541C026D558CB00780C57 /* GetDataOperation.swift */,
+				E38541C226D56F3300780C57 /* ParseData.swift */,
+				E38541C426D5708000780C57 /* ReloadTableController.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		E38B14D5252897560096F09C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +239,7 @@
 		E3CCE75B251FE051000A0FDE /* VK App */ = {
 			isa = PBXGroup;
 			children = (
+				E38541BF26D558AC00780C57 /* Operations */,
 				E3433EA225BC67CB009145C9 /* Network */,
 				E3E058322528D029002B888B /* Profile */,
 				E38B14D7252897870096F09C /* System */,
@@ -444,6 +461,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E30EA3202539F80D00CA71F2 /* GroupViewController.swift in Sources */,
+				E38541C126D558CB00780C57 /* GetDataOperation.swift in Sources */,
+				E38541C526D5708000780C57 /* ReloadTableController.swift in Sources */,
 				E318D93E266A349C0072B395 /* MainWallStruct.swift in Sources */,
 				E3DEB360259642F9009D2F7B /* NetworkSession.swift in Sources */,
 				E3433EA425BC6823009145C9 /* ApiRequest.swift in Sources */,
@@ -461,6 +480,7 @@
 				E30EA3182539F33900CA71F2 /* GroupStruct.swift in Sources */,
 				E3B1F8D0264AB5EE003DAD14 /* PhotoStruct.swift in Sources */,
 				E318D940266A357A0072B395 /* WallViewController.swift in Sources */,
+				E38541C326D56F3300780C57 /* ParseData.swift in Sources */,
 				E30EA31025363F9400CA71F2 /* UserStruct.swift in Sources */,
 				E39D6F89254774A100812A9D /* SourceStruct.swift in Sources */,
 				E39D6F7C2547739C00812A9D /* NewsStruct.swift in Sources */,
