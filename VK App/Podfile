@@ -9,7 +9,7 @@ target 'VK App' do
   use_frameworks!
 
   # Pods for WeatherApp737
-  pod 'Alamofire', '~> 5.2'
+  pod 'Alamofire', '~> 4.0'
   pod 'SwiftyJSON', '~> 5.0.0'
   pod 'Kingfisher', '~> 6.0.1'
   pod 'RealmSwift'
@@ -17,5 +17,7 @@ target 'VK App' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'PromiseKit'
+  pod 'PromiseKit/Alamofire'
 
 end

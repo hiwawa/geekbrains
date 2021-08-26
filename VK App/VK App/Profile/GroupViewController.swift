@@ -58,7 +58,7 @@ class GroupViewController: UIViewController, TableController {
 //                }
 //            }
         
-        let request = AF.request("https://api.vk.com/method/groups.get",
+        let request = Alamofire.request("https://api.vk.com/method/groups.get",
                                  method: .get,
                                  parameters: params)
         let getDataOperation = GetDataOperation(request: request)

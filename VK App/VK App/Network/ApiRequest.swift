@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import RealmSwift
+import PromiseKit
 
 class ApiRequest: NetworkSession {
     
@@ -30,7 +31,7 @@ class ApiRequest: NetworkSession {
             attributes: .concurrent
         )
         
-        AF.request(baseUrl + path,
+        Alamofire.request(baseUrl + path,
                    method: .get,
                    parameters: params)
             .responseData(queue: queue) { response in
@@ -61,7 +62,7 @@ class ApiRequest: NetworkSession {
             "v": "5.126"
         ]
         
-        AF.request(baseUrl + path,
+        Alamofire.request(baseUrl + path,
                    method: .get,
                    parameters: params)
             .responseData { response in
@@ -93,7 +94,7 @@ class ApiRequest: NetworkSession {
             "v": "5.126"
         ]
         
-        AF.request(baseUrl + path,
+        Alamofire.request(baseUrl + path,
                    method: .get,
                    parameters: params)
             .responseJSON { json in
@@ -102,36 +103,66 @@ class ApiRequest: NetworkSession {
     }
     
     //Get Friends
-    static func loadFriends(token: String, completion: @escaping ([FriendList]) -> Void) {
+    static func loadFriends(token: String) -> Promise<[FriendList]> {
         let baseUrl = "https://api.vk.com"
-        let path = "/method/friends.get"
+                let path = "/method/friends.get"
         
-        let params: Parameters = [
-            "access_token": token,
-            "extended": 1,
-            "v": "5.126",
-            "fields": "id,name,online,photo_200"
-        ]
-        
-        AF.request(baseUrl + path,
-                   method: .get,
-                   parameters: params)
-            .responseData { response in
-                switch response.result {
-                case .success(let data):
-                    let json = JSON(data)
-                    let friendsJSON = json["response"]["items"].arrayValue
-                    let friends = friendsJSON.compactMap { FriendList($0) }
-                    
-                    completion(friends)
-
-                case .failure(let error) :
-                    print(error)
-                }
+                let params: Parameters = [
+                    "access_token": token,
+                    "extended": 1,
+                    "v": "5.126",
+                    "fields": "id,name,online,photo_200"
+                ]
+        let queue = DispatchQueue(
+            label: "com.groups.get",
+            qos: .background,
+            attributes: .concurrent
+        )
+          
+           return Alamofire.request(baseUrl+path, method: .get, parameters: params)
+               .responseJSON(queue: queue)
+               .map { json, response -> [FriendList] in
+                   let json = JSON(json)
                 
-            }
-
-    }
+                if let errorMessage = json["error"]["error_msg"].string {
+                    let error: Error = errorMessage as! Error
+                        throw error
+                }
+                let friendsJSON = json["response"]["items"].arrayValue
+                let friends = friendsJSON.compactMap { FriendList($0) }
+                return friends
+           }
+       }
+//    static func loadFriends(token: String, completion: @escaping ([FriendList]) -> Void) {
+//        let baseUrl = "https://api.vk.com"
+//        let path = "/method/friends.get"
+//
+//        let params: Parameters = [
+//            "access_token": token,
+//            "extended": 1,
+//            "v": "5.126",
+//            "fields": "id,name,online,photo_200"
+//        ]
+//
+//        Alamofire.request(baseUrl + path,
+//                   method: .get,
+//                   parameters: params)
+//            .responseData { response in
+//                switch response.result {
+//                case .success(let data):
+//                    let json = JSON(data)
+//                    let friendsJSON = json["response"]["items"].arrayValue
+//                    let friends = friendsJSON.compactMap { FriendList($0) }
+//
+//                    completion(friends)
+//
+//                case .failure(let error) :
+//                    print(error)
+//                }
+//
+//            }
+//
+//    }
     //Get User
     static func loadUser(token: String, completion: @escaping ([UserModel]) -> Void) {
         let baseUrl = "https://api.vk.com"
@@ -144,7 +175,7 @@ class ApiRequest: NetworkSession {
             "fields": "first_name, last_name, photo_400_orig, domain, screen_name"
         ]
         
-        AF.request(baseUrl + path,
+        Alamofire.request(baseUrl + path,
                    method: .get,
                    parameters: params)
             .responseData { response in
@@ -174,7 +205,7 @@ class ApiRequest: NetworkSession {
             "v": "5.126"
         ]
         
-        AF.request(baseUrl + path,
+        Alamofire.request(baseUrl + path,
                    method: .get,
                    parameters: params)
             .responseData { response in

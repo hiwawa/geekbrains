@@ -28,19 +28,18 @@ class FriendsViewController: UIViewController {
         friendList.delegate = self
         friendList.dataSource = self
         
-        DispatchQueue.global().async {
         
-            ApiRequest.loadFriends(token: NetworkSession.shared.token) { [weak self]
+        
+            ApiRequest.loadFriends(token: NetworkSession.shared.token) {
                 friends in try? RealmService.save(items: friends)
-                DispatchQueue.main.async {
-                    self?.friendList.reloadData()
-                }
+                self?.friendList.reloadData()
+                
             }
             
         }
         
         // Do any additional setup after loading the view.
-    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             guard segue.identifier == "ProfileViewController" else { return }

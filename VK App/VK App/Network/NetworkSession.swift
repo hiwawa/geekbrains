@@ -10,10 +10,10 @@ import Alamofire
 import SwiftyJSON
 
 class NetworkSession {
-    static let session: Session = {
+    static let session: SessionManager = {
         let session = URLSessionConfiguration()
         session.timeoutIntervalForRequest = 60
-        let afSession = Session(configuration: session)
+        let afSession = SessionManager(configuration: session)
         return afSession
     }()
     
