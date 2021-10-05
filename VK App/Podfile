@@ -19,5 +19,6 @@ target 'VK App' do
   pod 'Firebase/Firestore'
   pod 'PromiseKit'
   pod 'PromiseKit/Alamofire'
+  pod 'Combine-Realm'
 
 end
