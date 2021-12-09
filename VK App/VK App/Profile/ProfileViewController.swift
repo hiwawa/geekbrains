@@ -48,14 +48,15 @@ class ProfileViewController: UIViewController {
                 self?.userPhoto.kf.setImage(with: URL(string: user[0].photo))
             }
         
-            //userPhoto.setRounded()
+            userPhoto.layer.masksToBounds = true
+            userPhoto.layer.cornerRadius = userPhoto.bounds.width / 2
+            userPhoto.contentMode = UIView.ContentMode.scaleAspectFill
         
             ProfileNewsList.delegate = self
             ProfileNewsList.dataSource = self
     }
 
 }
-
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,4 +77,13 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
     }
 
 
+}
+
+extension UIImageView {
+
+   func setRounded() {
+      let radius = self.frame.width / 2
+      self.layer.cornerRadius = radius
+      self.layer.masksToBounds = true
+   }
 }

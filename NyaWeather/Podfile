@@ -11,6 +11,8 @@ target 'NyaWeather (iOS)' do
   pod 'SwiftyJSON'
   pod 'Kingfisher'
   pod 'RealmSwift'
+  #pod 'ObjectMapper'
+  pod 'AlamofireObjectMapper', '~> 6.1.0'
 
 end
 

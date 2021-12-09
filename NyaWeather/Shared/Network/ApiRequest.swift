@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import RealmSwift
+import AlamofireObjectMapper
 
 class ApiRequest: NetworkSession, ObservableObject {
     
@@ -43,7 +44,7 @@ class ApiRequest: NetworkSession, ObservableObject {
             }
     }
     
-    static func getWeather(city: String, param: String) {
+    static func getWeather(city: String, completion: @escaping (WeatherObjectModel?) -> Void) {
         let baseUrl = "https://api.openweathermap.org/data/2.5/weather"
         
         let params: Parameters = [
@@ -56,19 +57,9 @@ class ApiRequest: NetworkSession, ObservableObject {
         
         AF.request(baseUrl,
                    method: .get, parameters: params)
-            .responseData(queue:queue) { response in
-                switch response.result {
-                case .success(let data):
-                    let json = JSON(data)
-                    if param == "temerature"{
-                        return print(json["main"]["temp"])
-                    } else if param == "name" {
-                        return print(json["name"])
-                    }
-                    
-                case .failure(let error) :
-                    print(error)
-                }
+            .responseObject(queue:queue) { (response: DataResponse<WeatherObjectModel>) in
+                let value = response.value
+                completion(value)
             }
     }
     

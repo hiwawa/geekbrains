@@ -34,7 +34,7 @@ struct ContentView: View {
                 Label("Add Item", systemImage: "plus")
             }
         }
-        Text("Test")
+        WeatherView()
     }
 
     private func addItem() {

@@ -14,15 +14,11 @@ protocol TableController: AnyObject{
     func reloadData()
 }
 
-class GroupViewController: UIViewController, TableController {
-    func reloadData() {
-        groupList.reloadData()
-    }
+class GroupViewController: UIViewController {
     
     var groupsVK: [GroupModel] = []
     
     @IBOutlet weak var groupList: UITableView!
-    let opq = OperationQueue()
     
     let user = try? Realm().object(ofType: UserModel.self, forPrimaryKey: 1)
     
@@ -32,14 +28,6 @@ class GroupViewController: UIViewController, TableController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        let params: Parameters = [
-            "access_token": NetworkSession.shared.token,
-            "extended": 1,
-            "user_id": user?.id,
-            "v": "5.126"
-        ]
         
         //Цвет NavigationBar - BG & Title
         navigationController?.navigationBar.barTintColor = UIColor.white
@@ -51,27 +39,11 @@ class GroupViewController: UIViewController, TableController {
         
         
 
-//            ApiRequest.loadGroups(token: NetworkSession.shared.token) { [weak self]
-//                groups in try? RealmService.save(items: groups)
-//                DispatchQueue.main.async {
-//                    self?.groupList.reloadData()
-//                }
-//            }
-        
-        let request = Alamofire.request("https://api.vk.com/method/groups.get",
-                                 method: .get,
-                                 parameters: params)
-        let getDataOperation = GetDataOperation(request: request)
-                opq.addOperation(getDataOperation)
-                
-                let parseData = ParseData()
-                parseData.addDependency(getDataOperation)
-                opq.addOperation(parseData)
-                print(parseData)
-                
-                let reloadTableController = ReloadTableController(controller: self)
-                reloadTableController.addDependency(parseData)
-                OperationQueue.main.addOperation(reloadTableController)
+            ApiRequest.loadGroups(token: NetworkSession.shared.token) {
+                groups in try? RealmService.save(items: groups)
+                self.groupList.reloadData()
+            }
+  
 
         
         notification()

@@ -9,22 +9,16 @@ import SwiftUI
 import RealmSwift
 import Alamofire
 
+
 struct WeatherView: View {
-    
-    func getWeather(){
-        var weather = try? Realm().objects(Weather.self)
-        var realmtoken: NotificationToken?
-        ApiRequest.getForecast(city: "Warsaw") {
-            weather in try? RealmService.save(items: weather)
-        }
+    var currentTemp = {
+        print("Func")
     }
-    
-    var currentWeather = weather.title
-    
+
     var body: some View {
         Section{
-            Text("\()")
-        }.onAppear { self.getWeather() }
+            Text("\(currentTemp)")
+        }
     }
 }
 

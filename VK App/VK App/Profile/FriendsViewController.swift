@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class FriendsViewController: UIViewController {
+class FriendsViewController: UIViewController{
 
     @IBOutlet weak var addFriend: UIBarButtonItem!
     @IBOutlet var friendList: UITableView!
@@ -29,23 +29,21 @@ class FriendsViewController: UIViewController {
         friendList.dataSource = self
         
         
-        
             ApiRequest.loadFriends(token: NetworkSession.shared.token) {
                 friends in try? RealmService.save(items: friends)
-                self?.friendList.reloadData()
-                
+                self.friendList.reloadData()
             }
-            
-        }
+
         
         // Do any additional setup after loading the view.
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             guard segue.identifier == "ProfileViewController" else { return }
             guard let destination = segue.destination as? ProfileViewController else { return }
-    }
+        }
 
+    }
 }
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {

@@ -29,6 +29,8 @@
 		E382EC3926DEB32E00C206D5 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382EC3726DEB32E00C206D5 /* WeatherModel.swift */; };
 		E382EC3C26DEB9B100C206D5 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382EC3B26DEB9B100C206D5 /* WeatherView.swift */; };
 		E382EC3D26DEB9B100C206D5 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382EC3B26DEB9B100C206D5 /* WeatherView.swift */; };
+		E3F63E25273A8F140072EE91 /* WeatherObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F63E24273A8F140072EE91 /* WeatherObjectModel.swift */; };
+		E3F63E26273A8F140072EE91 /* WeatherObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F63E24273A8F140072EE91 /* WeatherObjectModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,7 @@
 		E382EC3326DEB2D900C206D5 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		E382EC3726DEB32E00C206D5 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		E382EC3B26DEB9B100C206D5 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		E3F63E24273A8F140072EE91 /* WeatherObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherObjectModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				E382EC3726DEB32E00C206D5 /* WeatherModel.swift */,
+				E3F63E24273A8F140072EE91 /* WeatherObjectModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E382EC3826DEB32E00C206D5 /* WeatherModel.swift in Sources */,
+				E3F63E25273A8F140072EE91 /* WeatherObjectModel.swift in Sources */,
 				E34DE36026DEADDA00B770FF /* NyaWeather.xcdatamodeld in Sources */,
 				E34DE36626DEADDA00B770FF /* Persistence.swift in Sources */,
 				E34DE36226DEADDA00B770FF /* NyaWeatherApp.swift in Sources */,
@@ -355,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E382EC3926DEB32E00C206D5 /* WeatherModel.swift in Sources */,
+				E3F63E26273A8F140072EE91 /* WeatherObjectModel.swift in Sources */,
 				E34DE36126DEADDA00B770FF /* NyaWeather.xcdatamodeld in Sources */,
 				E34DE36726DEADDA00B770FF /* Persistence.swift in Sources */,
 				E34DE36326DEADDA00B770FF /* NyaWeatherApp.swift in Sources */,
