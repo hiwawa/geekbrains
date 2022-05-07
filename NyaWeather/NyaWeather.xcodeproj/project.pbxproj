@@ -121,6 +121,10 @@
 		E374D73728267BDD0040C9C7 /* NyaWeather */ = {
 			isa = PBXGroup;
 			children = (
+				E374D76F2826BA7C0040C9C7 /* Extensions */,
+				E374D76E2826BA640040C9C7 /* Models */,
+				E374D76D2826BA190040C9C7 /* Network */,
+				E374D76C2826BA0B0040C9C7 /* Views */,
 				E374D73828267BDD0040C9C7 /* NyaWeatherApp.swift */,
 				E374D73A28267BDD0040C9C7 /* ContentView.swift */,
 				E374D73C28267BE10040C9C7 /* Assets.xcassets */,
@@ -164,6 +168,34 @@
 				E374D75C28267BE40040C9C7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E374D76C2826BA0B0040C9C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E374D76D2826BA190040C9C7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E374D76E2826BA640040C9C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E374D76F2826BA7C0040C9C7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
