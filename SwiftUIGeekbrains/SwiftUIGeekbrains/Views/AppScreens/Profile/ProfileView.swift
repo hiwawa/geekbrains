@@ -6,18 +6,27 @@
 //
 
 import SwiftUI
+import RealmSwift
+import Kingfisher
 
 struct ProfileView: View {
     
+    @EnvironmentObject var settings: UserSettings
+    
     @State private var status: String = "Онлайн"
+    @State private var user = try? Realm().objects(UserModel.self)
+    
+    var userObject = try? Realm()
+        .objects(UserModel.self).first
     
     var body: some View {
+        
         ZStack(alignment: .bottomLeading) {
-            Image("user-photo-jpg")
+            KFImage(URL(string: userObject!.photo))
                 .resizable()
                 .scaledToFill()
             VStack(alignment: .leading, spacing: 0){
-                Text("Aleksander Pankow")
+                Text("\(userObject!.firstname) \(userObject!.lastname)")
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .padding([.leading])
@@ -32,9 +41,16 @@ struct ProfileView: View {
                         .font(.caption2)
                         .padding(.bottom, 10)
                 }
+                
             }
             
+            
+        }.onAppear(){
+            ApiRequest.loadCurrentUser(token: self.settings.userToken as! String){
+                user in try? RealmService.save(items: user)
+            }
         }
+        
     }
     private func onlineColor() -> Color{
         if status == "Онлайн" {
@@ -45,8 +61,8 @@ struct ProfileView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView()
+//    }
+//}

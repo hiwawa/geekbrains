@@ -12,7 +12,8 @@ struct SwiftUIGeekbrainsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginVK()
+            AppStartView()
+            .environmentObject(UserSettings())
         }
     }
 }
