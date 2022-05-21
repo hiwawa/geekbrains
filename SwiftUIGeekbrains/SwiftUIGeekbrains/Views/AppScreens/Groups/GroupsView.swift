@@ -6,15 +6,27 @@
 //
 
 import SwiftUI
+import RealmSwift
+import Kingfisher
 
 struct GroupsView: View {
+    
+    @ObservedResults(GroupModel.self) var items
+    
     var body: some View {
-        Text("Groups")
-    }
-}
-
-struct GroupsView_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupsView()
+            List {
+                ForEach(items){group in
+                    NavigationLink(destination: GroupDetailedView(group: group)){
+                        GroupCellView(group: group)
+                    }
+                }
+            }
+            .navigationBarTitle("Groups")
+            .navigationBarBackButtonHidden(true)
+            .onAppear(){
+                ApiRequest.loadGroups(){
+                    groups in try? RealmService.save(items: groups)
+                }
+            }
     }
 }

@@ -17,6 +17,8 @@ struct ProfileView: View {
     func logoutUser(){
         $settings.unLoged.wrappedValue = true
         $settings.userToken.wrappedValue = nil
+        UserDefaults.standard.removeObject(forKey: "vkToken")
+        UserDefaults.standard.removeObject(forKey: "vkId")
         let realm = try! Realm()
         try! realm.write {
             realm.deleteAll()
@@ -25,7 +27,7 @@ struct ProfileView: View {
     
     var body: some View {
             ZStack(alignment: .bottomLeading) {
-                KFImage(URL(string: user?.photo ?? "https://picsum.photos/200"))
+                KFImage(URL(string: user!.photo))
                     .resizable()
                     .scaledToFill()
                 VStack(alignment: .leading, spacing: 0){
@@ -49,11 +51,9 @@ struct ProfileView: View {
                     }
                 }
             }.onAppear(){
-                ApiRequest.loadCurrentUser(token: self.settings.userToken as! String){
+                ApiRequest.loadUsers(){
                     user in try? RealmService.save(items: user)
                 }
-                print($settings.userToken as Any)
-               
             }
     }
 }
