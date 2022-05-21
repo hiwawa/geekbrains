@@ -15,6 +15,8 @@ import RealmSwift
     @objc dynamic var photo: String = ""
     @objc dynamic var nickname: String = ""
     @objc dynamic var domain: String = ""
+    @objc dynamic var online: Int = 0
+    @objc dynamic var birthday: String = ""
     @objc dynamic var id: Int = 0
     
     convenience init(_ json:JSON) {
@@ -25,6 +27,8 @@ import RealmSwift
         self.photo = json["photo_400_orig"].stringValue
         self.nickname = json["screen_name"].stringValue
         self.domain = json["domain"].stringValue
+        self.online = json["online"].intValue
+        self.birthday = json["bdate"].stringValue
         self.id = json["id"].intValue
 
     }

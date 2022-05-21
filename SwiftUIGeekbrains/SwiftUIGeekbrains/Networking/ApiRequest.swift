@@ -18,10 +18,9 @@ class ApiRequest: NetworkSession {
         let params: Parameters = [
             "access_token": token,
             "extended": 1,
-            "v": "5.126",
-            "fields": "first_name, last_name, photo_400_orig, domain, screen_name"
+            "v": "5.131"
         ]
-        let queue = DispatchQueue(label: "com.halalfood.async", qos: .background, attributes: [.concurrent])
+        let queue = DispatchQueue(label: "com.vk.async", qos: .background, attributes: [.concurrent])
         AF.request(baseUrl + path,
                    method: .get,
                    parameters: params)
@@ -31,7 +30,7 @@ class ApiRequest: NetworkSession {
                 let json = JSON(data)
                 let userJSON = json["response"].arrayValue
                 let user = userJSON.compactMap { UserModel($0) }
-                //print(user)
+                print(userJSON)
                 DispatchQueue.main.async{
                     completion(user)
                 }

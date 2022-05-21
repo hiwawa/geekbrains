@@ -8,21 +8,30 @@
 import SwiftUI
 
 class UserSettings: ObservableObject {
-    @Published var loggedIn : Bool = false
     @Published var userToken = UserDefaults.standard.object(forKey: "vkToken")
+    @Published var unLoged : Bool = false
 }
 
 struct AppStartView: View {
     
-    @State private var isLogout: Bool = false
-    @State private var isLoginView: Bool = false
     @EnvironmentObject var settings: UserSettings
     
-    var body: some View {
-        if (settings.userToken != nil) {
-            return AnyView(AppView())
+    func loginCheck(){
+        if settings.userToken == nil {
+            settings.unLoged = true
+            print("Login Popup \(settings.unLoged)")
         } else {
-            return AnyView(LoginVK())
+            print("Login Popup \(settings.unLoged)")
+        }
+    }
+    
+    var body: some View {
+        NavigationView{
+            AppView()
+                .sheet(isPresented: $settings.unLoged, content: {   LoginVK()   })
+                .onAppear(){
+                    loginCheck()
+                }
         }
     }
 }

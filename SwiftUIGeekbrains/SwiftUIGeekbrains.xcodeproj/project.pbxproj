@@ -16,12 +16,12 @@
 		E34336B8270B0491005F24F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E34336B7270B0491005F24F7 /* Preview Assets.xcassets */; };
 		E374D7712826BEBF0040C9C7 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374D7702826BEBF0040C9C7 /* NetworkSession.swift */; };
 		E374D7732826D36B0040C9C7 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374D7722826D36B0040C9C7 /* ApiRequest.swift */; };
-		E374D7752826D4270040C9C7 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374D7742826D4270040C9C7 /* UserModel.swift */; };
 		E374D7782826D7E40040C9C7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E374D7772826D7E40040C9C7 /* Realm */; };
 		E374D77A2826D7E40040C9C7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E374D7792826D7E40040C9C7 /* RealmSwift */; };
 		E374D77D2826D7F60040C9C7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E374D77C2826D7F60040C9C7 /* Kingfisher */; };
 		E374D7802826D8050040C9C7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E374D77F2826D8050040C9C7 /* Alamofire */; };
 		E374D7832826D8130040C9C7 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E374D7822826D8130040C9C7 /* SwiftyJSON */; };
+		E375B1A028357CCA00DACD9F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375B19F28357CCA00DACD9F /* UserModel.swift */; };
 		E391146727E108B700372327 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E391146627E108B700372327 /* HostingController.swift */; };
 		E3F1507327A19576006C8A07 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F1507227A19576006C8A07 /* RealmService.swift */; };
 		E3F1507527A19597006C8A07 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F1507427A19597006C8A07 /* CoreDataService.swift */; };
@@ -45,7 +45,7 @@
 		E34336B7270B0491005F24F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E374D7702826BEBF0040C9C7 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		E374D7722826D36B0040C9C7 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
-		E374D7742826D4270040C9C7 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E375B19F28357CCA00DACD9F /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E391146627E108B700372327 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		E3F1507227A19576006C8A07 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		E3F1507427A19597006C8A07 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				E3F5D699279DFF0E0032E4C2 /* Friend.swift */,
-				E374D7742826D4270040C9C7 /* UserModel.swift */,
+				E375B19F28357CCA00DACD9F /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,13 +303,13 @@
 				E3F5D68C279DF7C20032E4C2 /* ProfileView.swift in Sources */,
 				E3F1507727A195B3006C8A07 /* DetachableObject.swift in Sources */,
 				E3F5D697279DFD410032E4C2 /* NewsFeedView.swift in Sources */,
-				E374D7752826D4270040C9C7 /* UserModel.swift in Sources */,
 				E391146727E108B700372327 /* HostingController.swift in Sources */,
 				E30D97712826EC7700377353 /* AppStartView.swift in Sources */,
 				E3F5D69A279DFF0E0032E4C2 /* Friend.swift in Sources */,
 				E3F1507327A19576006C8A07 /* RealmService.swift in Sources */,
 				E374D7712826BEBF0040C9C7 /* NetworkSession.swift in Sources */,
 				E3F5D695279DFD2D0032E4C2 /* GroupsView.swift in Sources */,
+				E375B1A028357CCA00DACD9F /* UserModel.swift in Sources */,
 				E34336B1270B048F005F24F7 /* SwiftUIGeekbrainsApp.swift in Sources */,
 				E3F5D69D279E15900032E4C2 /* FriendCellView.swift in Sources */,
 				E374D7732826D36B0040C9C7 /* ApiRequest.swift in Sources */,
@@ -443,6 +443,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIGeekbrains/Preview Content\"";
 				DEVELOPMENT_TEAM = HM37P8L339;
 				ENABLE_PREVIEWS = YES;
@@ -457,6 +458,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.hiwawa.VKSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -470,6 +472,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIGeekbrains/Preview Content\"";
 				DEVELOPMENT_TEAM = HM37P8L339;
 				ENABLE_PREVIEWS = YES;
@@ -484,6 +487,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.hiwawa.VKSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -51,7 +51,7 @@ struct LoginVK: UIViewRepresentable {
 }
 
 class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
-
+    
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         guard let url = navigationResponse.response.url,
               url.path == "/blank.html",
@@ -81,7 +81,9 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
         }
         
         UserDefaults.standard.set(token, forKey: "vkToken")
+        UserDefaults.standard.set(userIdString, forKey: "vkId")
         print("Login successfull.")
+        
 
         decisionHandler(.cancel)
     }
