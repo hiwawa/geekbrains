@@ -11,28 +11,21 @@ import Kingfisher
 
 struct ProfileView: View {
     
-    @EnvironmentObject var settings: UserSettings
     @ObservedResults(WallModel.self) var items
-    @State private var user = try? Realm().objects(UserModel.self).first
+    @State private var user = try! Realm().objects(UserModel.self).first
     
     func logoutUser(){
-        $settings.unLoged.wrappedValue = true
-        $settings.userToken.wrappedValue = nil
         UserDefaults.standard.removeObject(forKey: "vkToken")
-        UserDefaults.standard.removeObject(forKey: "vkId")
-        let realm = try! Realm()
-        try! realm.write {
-            realm.deleteAll()
-        }
+        print("Logout")
     }
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            KFImage(URL(string: user?.photo ?? "https://picsum.photos/200/300"))
+            KFImage(URL(string: user!.photo))
                 .resizable()
                 .scaledToFill()
             VStack(alignment: .leading, spacing: 0){
-                Text("\(user?.firstname ?? "Something") \(user?.lastname ?? "Wrong")")
+                Text("\(user!.firstname) \(user!.lastname)")
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .padding([.leading])

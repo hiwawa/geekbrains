@@ -13,8 +13,6 @@ struct SwiftUIGeekbrainsApp: App {
     var body: some Scene {
         WindowGroup {
             AppStartView()
-            .environmentObject(UserSettings())
-            .background(Color("bg-app-color"))
         }
     }
 }

@@ -13,6 +13,7 @@ struct NewsFeedView: View {
     @ObservedResults(NewsModel.self, filter: NSPredicate(format: "type = 'post'")) var items
     
     var body: some View {
+        NavigationView{
             ScrollView(.vertical, showsIndicators: false){
                 VStack(spacing:20){
                     ForEach(items){news in
@@ -21,10 +22,12 @@ struct NewsFeedView: View {
                 }
             }
             .padding(.horizontal)
+            .navigationTitle("News Feed")
             .onAppear(){
                 ApiRequest.loadNewsFeed(){
                     news in try? RealmService.save(items: news)
                 }
             }
+        }
     }
 }

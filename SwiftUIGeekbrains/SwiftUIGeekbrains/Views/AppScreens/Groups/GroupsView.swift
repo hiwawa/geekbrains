@@ -13,6 +13,7 @@ struct GroupsView: View {
     @ObservedResults(GroupModel.self) var items
     
     var body: some View {
+        NavigationView{
             List {
                 ForEach(items){group in
                     NavigationLink(destination: GroupDetailedView(group: group)){
@@ -20,10 +21,12 @@ struct GroupsView: View {
                     }
                 }
             }
+            .navigationTitle("Groups")
             .onAppear(){
                 ApiRequest.loadGroups(){
                     groups in try? RealmService.save(items: groups)
                 }
             }
+        }
     }
 }

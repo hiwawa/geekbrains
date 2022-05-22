@@ -14,6 +14,7 @@ struct FriendsView: View {
     @ObservedResults(FriendModel.self) var items
     
     var body: some View {
+        NavigationView{
             List {
                 ForEach(items){friend in
                     NavigationLink(destination: FriendDetailedView(friend: friend)){
@@ -21,10 +22,13 @@ struct FriendsView: View {
                     }
                 }
             }
+            .navigationTitle("Friends")
             .onAppear(){
                 ApiRequest.loadFriends(){
                     friends in try? RealmService.save(items: friends)
                 }
             }
+        }
+        
     }
 }
