@@ -7,7 +7,6 @@
 
 import SwiftUI
 import RealmSwift
-import Kingfisher
 
 struct GroupsView: View {
     
@@ -21,8 +20,6 @@ struct GroupsView: View {
                     }
                 }
             }
-            .navigationBarTitle("Groups")
-            .navigationBarBackButtonHidden(true)
             .onAppear(){
                 ApiRequest.loadGroups(){
                     groups in try? RealmService.save(items: groups)

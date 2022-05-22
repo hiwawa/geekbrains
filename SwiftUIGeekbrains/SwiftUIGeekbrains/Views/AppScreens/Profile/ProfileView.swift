@@ -12,6 +12,7 @@ import Kingfisher
 struct ProfileView: View {
     
     @EnvironmentObject var settings: UserSettings
+    @ObservedResults(WallModel.self) var items
     @State private var user = try? Realm().objects(UserModel.self).first
     
     func logoutUser(){
@@ -26,34 +27,51 @@ struct ProfileView: View {
     }
     
     var body: some View {
-            ZStack(alignment: .bottomLeading) {
-                KFImage(URL(string: user!.photo))
-                    .resizable()
-                    .scaledToFill()
-                VStack(alignment: .leading, spacing: 0){
-                    Text("\(user?.firstname ?? "Something") \(user?.lastname ?? "Wrong")")
-                        .fontWeight(.bold)
+        ZStack(alignment: .bottomLeading) {
+            KFImage(URL(string: user?.photo ?? "https://picsum.photos/200/300"))
+                .resizable()
+                .scaledToFill()
+            VStack(alignment: .leading, spacing: 0){
+                Text("\(user?.firstname ?? "Something") \(user?.lastname ?? "Wrong")")
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    .padding([.leading])
+                HStack{
+                    Text("30 лет")
                         .foregroundColor(Color.white)
-                        .padding([.leading])
-                    HStack{
-                        Text("30 лет")
-                            .foregroundColor(Color.white)
-                            .padding([.leading, .bottom], 15)
-                            .padding(.top, 5)
-                            .font(.caption)
-                    }
-                    HStack{
-                        NavigationLink(destination: AppStartView(), label: {
-                            Button(action: logoutUser, label: {
-                                Text("Logout")
-                            })
-                        })
-                    }
+                        .padding([.leading, .bottom], 15)
+                        .padding(.top, 5)
+                        .font(.caption)
                 }
-            }.onAppear(){
-                ApiRequest.loadUsers(){
-                    user in try? RealmService.save(items: user)
+                HStack{
+                    NavigationLink(destination: AppStartView(), label: {
+                        Button(action: logoutUser, label: {
+                            Text("Logout")
+                        })
+                    })
                 }
             }
+            
+        }.onAppear(){
+            ApiRequest.loadUsers(){
+                user in try? RealmService.save(items: user)
+            }
+            ApiRequest.loadWall(){
+                wall in try? RealmService.save(items: wall)
+            }
+            print(items)
+        }
+        VStack{
+            HStack{
+                ScrollView(.vertical, showsIndicators: false){
+                    VStack(spacing:20){
+                        ForEach(items){wall in
+                            WallCellView(wall: wall)
+                        }
+                    }
+                }
+            }
+            .padding([.top, .leading, .trailing])
+        }
     }
 }

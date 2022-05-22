@@ -21,8 +21,6 @@ struct FriendsView: View {
                     }
                 }
             }
-            .navigationBarTitle("Friends")
-            .navigationBarBackButtonHidden(true)
             .onAppear(){
                 ApiRequest.loadFriends(){
                     friends in try? RealmService.save(items: friends)

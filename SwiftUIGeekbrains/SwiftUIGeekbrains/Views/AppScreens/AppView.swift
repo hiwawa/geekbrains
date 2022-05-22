@@ -13,6 +13,7 @@ struct AppView: View {
     
     var body: some View {
         TabView {
+            
             ScrollView{
                 ProfileView()
             }
@@ -23,32 +24,24 @@ struct AppView: View {
             }
             
             FriendsView()
-            .tabItem {
-                Image(systemName: "person.2.fill")
-                VStack{
-                    Text("Friends")
+                .tabItem {
+                    Image(systemName: "person.2.fill")
+                    VStack{
+                        Text("Friends")
+                    }
                 }
-            }
             
             GroupsView()
-            .tabItem {
-                Image(systemName: "square.grid.2x2")
-                Text("Groups")
-            }
+                .tabItem {
+                    Image(systemName: "square.grid.2x2")
+                    Text("Groups")
+                }
             
             NewsFeedView()
-            .tabItem {
-                Image(systemName: "book")
-                Text("Feed")
-            }
+                .tabItem {
+                    Image(systemName: "book")
+                    Text("Feed")
+                }
         }
-        
-        
     }
-    
 }
-//struct App_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AppView()
-//    }
-//}

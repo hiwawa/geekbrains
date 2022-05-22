@@ -120,4 +120,75 @@ class ApiRequest: NetworkSession {
         }
         
     }
+    
+    static func loadNewsFeed(completion: @escaping ([NewsModel]) -> Void) {
+        
+        let baseUrl = "https://api.vk.com"
+        let path = "/method/newsfeed.get"
+        
+        let params: Parameters = [
+            "access_token": UserDefaults.standard.object(forKey: "vkToken") as! String,
+            "extended": 1,
+            "v": "5.131",
+            "count": 15
+        ]
+        let queue = DispatchQueue(label: "com.vk.async", qos: .background, attributes: [.concurrent])
+        AF.request(baseUrl + path,
+                   method: .get,
+                   parameters: params)
+        .responseData(queue:queue) { response in
+            switch response.result {
+            case .success(let data):
+                let json = JSON(data)
+                let newsJSON = json["response"]["items"].arrayValue
+                let news = newsJSON.compactMap { NewsModel($0) }
+                
+                //print(newsJSON)
+                
+                DispatchQueue.main.async{
+                    completion(news)
+                }
+                
+            case .failure(let error) :
+                print(error)
+            }
+            
+        }
+        
+    }
+    static func loadWall(completion: @escaping ([WallModel]) -> Void) {
+        
+        let baseUrl = "https://api.vk.com"
+        let path = "/method/wall.get"
+        
+        let params: Parameters = [
+            "access_token": UserDefaults.standard.object(forKey: "vkToken") as! String,
+            "extended": 1,
+            "v": "5.131",
+            "count": 15
+        ]
+        let queue = DispatchQueue(label: "com.vk.async", qos: .background, attributes: [.concurrent])
+        AF.request(baseUrl + path,
+                   method: .get,
+                   parameters: params)
+        .responseData(queue:queue) { response in
+            switch response.result {
+            case .success(let data):
+                let json = JSON(data)
+                let wallJSON = json["response"]["items"].arrayValue
+                let wall = wallJSON.compactMap { WallModel($0) }
+                
+                print(wallJSON)
+                
+                DispatchQueue.main.async{
+                    completion(wall)
+                }
+                
+            case .failure(let error) :
+                print(error)
+            }
+            
+        }
+        
+    }
 }
