@@ -82,6 +82,7 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
         
         UserDefaults.standard.set(token, forKey: "vkToken")
         UserDefaults.standard.set(userIdString, forKey: "vkId")
+        AuthManager.Authenticated.send(true)
         print("Login successfull.")
         
 

@@ -10,6 +10,8 @@
 		E30BA58527E7754C0045B567 /* LoginVK.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30BA58427E7754C0045B567 /* LoginVK.swift */; };
 		E30D97712826EC7700377353 /* AppStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30D97702826EC7700377353 /* AppStartView.swift */; };
 		E313B3AE279E270E00A3D53D /* FriendDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313B3AD279E270E00A3D53D /* FriendDetailedView.swift */; };
+		E31C729E283FAABD00DA85EF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C729D283FAABD00DA85EF /* AuthManager.swift */; };
+		E31C72A0283FABB300DA85EF /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C729F283FABB300DA85EF /* AppViewModel.swift */; };
 		E3258322279DC64800C5AC4D /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3258321279DC64800C5AC4D /* AppView.swift */; };
 		E32874A428394B3B00F8248C /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32874A328394B3B00F8248C /* FriendModel.swift */; };
 		E32874A628395DDF00F8248C /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32874A528395DDF00F8248C /* GroupModel.swift */; };
@@ -45,6 +47,8 @@
 		E30BA58427E7754C0045B567 /* LoginVK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVK.swift; sourceTree = "<group>"; };
 		E30D97702826EC7700377353 /* AppStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStartView.swift; sourceTree = "<group>"; };
 		E313B3AD279E270E00A3D53D /* FriendDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailedView.swift; sourceTree = "<group>"; };
+		E31C729D283FAABD00DA85EF /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		E31C729F283FABB300DA85EF /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		E3258321279DC64800C5AC4D /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		E32874A328394B3B00F8248C /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		E32874A528395DDF00F8248C /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				E30BA58427E7754C0045B567 /* LoginVK.swift */,
+				E31C729D283FAABD00DA85EF /* AuthManager.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 				E32874A528395DDF00F8248C /* GroupModel.swift */,
 				E32874AE283A5CB400F8248C /* NewsModel.swift */,
 				E32874B8283A9F7300F8248C /* WallModel.swift */,
+				E31C729F283FABB300DA85EF /* AppViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 				E32874B7283A855800F8248C /* WallCellView.swift in Sources */,
 				E3F1507527A19597006C8A07 /* CoreDataService.swift in Sources */,
 				E32874A428394B3B00F8248C /* FriendModel.swift in Sources */,
+				E31C729E283FAABD00DA85EF /* AuthManager.swift in Sources */,
 				E3F5D693279DFD140032E4C2 /* FriendsView.swift in Sources */,
 				E30BA58527E7754C0045B567 /* LoginVK.swift in Sources */,
 				E313B3AE279E270E00A3D53D /* FriendDetailedView.swift in Sources */,
@@ -367,6 +374,7 @@
 				E30D97712826EC7700377353 /* AppStartView.swift in Sources */,
 				E3F1507327A19576006C8A07 /* RealmService.swift in Sources */,
 				E374D7712826BEBF0040C9C7 /* NetworkSession.swift in Sources */,
+				E31C72A0283FABB300DA85EF /* AppViewModel.swift in Sources */,
 				E32874A928395F7800F8248C /* GroupCellView.swift in Sources */,
 				E3F5D695279DFD2D0032E4C2 /* GroupsView.swift in Sources */,
 				E375B1A028357CCA00DACD9F /* UserModel.swift in Sources */,

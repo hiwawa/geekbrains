@@ -191,4 +191,33 @@ class ApiRequest: NetworkSession {
         }
         
     }
+    static func likes(id: Int, action: String) {
+        
+        let baseUrl = "https://api.vk.com"
+        let path = "/method/likes.\(action)"
+        
+        let params: Parameters = [
+            "access_token": UserDefaults.standard.object(forKey: "vkToken") as! String,
+            "type": "post",
+            "item_id": id,
+            "v": "5.131"
+        ]
+        let queue = DispatchQueue(label: "com.vk.async", qos: .background, attributes: [.concurrent])
+        AF.request(baseUrl + path,
+                   method: .post,
+                   parameters: params)
+        .responseData(queue:queue) { response in
+            switch response.result {
+            case .success(let data):
+                let json = JSON(data)
+                //let likeJSON = json["response"]["items"].arrayValue
+                print(json)
+                
+            case .failure(let error) :
+                print(error)
+            }
+            
+        }
+        
+    }
 }

@@ -9,17 +9,13 @@ import SwiftUI
 
 struct AppStartView: View {
     
-    @AppStorage("vkToken") private var isLogin: Bool = false
+    @State var isAuthenticated = AuthManager.IsAuthenticated()
     
     var body: some View {
         Group {
-            isLogin ?
-            AnyView(LoginVK()) :
-            AnyView(AppView())
-        }
-        //        NavigationView{
-        //            AppView()
-        //                .sheet(isPresented: $settings.unLoged, content: {   LoginVK()   })
-        //        }
+            isAuthenticated ? AnyView(AppView()) : AnyView(LoginVK())
+        }.onReceive(AuthManager.Authenticated, perform: {
+            isAuthenticated = $0
+       })
     }
 }

@@ -12,6 +12,7 @@ import Kingfisher
 struct WallCellView: View {
     
     @ObservedRealmObject var wall: WallModel
+    @State  var isLike: Bool = false
     
     var body: some View {
         ZStack {
@@ -40,10 +41,10 @@ struct WallCellView: View {
                 VStack(alignment: .leading){
                     HStack(alignment: .center, spacing: 10.0){
                         Button(action: {
-                            print("Like!")
-                            
+                            print("Like! \(wall.id)")
+                            self.isLike.toggle()
                         }) {
-                            Image(systemName: "heart")
+                            Image(systemName: self.isLike == true ? "heart.fill" : "heart")
                                 .renderingMode(.original)
                                 .foregroundColor(Color("yellow-app-color"))
                             Text("\(wall.likes)")

@@ -12,18 +12,15 @@ import Kingfisher
 struct ProfileView: View {
     
     @ObservedResults(WallModel.self) var items
+    @ObservedObject var vm = AppViewModel()
     @State private var user = try! Realm().objects(UserModel.self).first
-    
-    func logoutUser(){
-        UserDefaults.standard.removeObject(forKey: "vkToken")
-        print("Logout")
-    }
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             KFImage(URL(string: user!.photo))
                 .resizable()
                 .scaledToFill()
+                .cornerRadius(10)
             VStack(alignment: .leading, spacing: 0){
                 Text("\(user!.firstname) \(user!.lastname)")
                     .fontWeight(.bold)
@@ -37,15 +34,22 @@ struct ProfileView: View {
                         .font(.caption)
                 }
                 HStack{
-                    NavigationLink(destination: AppStartView(), label: {
-                        Button(action: logoutUser, label: {
-                            Text("Logout")
-                        })
+                    Button(action: {
+                        print("Logout")
+                        vm.logoutUser()
+                    }, label: {
+                        NavigationLink(destination: AppStartView()) {
+                             Text("Logout")
+                         }
                     })
                 }
+                    
             }
             
-        }.onAppear(){
+        }
+        .padding([.top], 60)
+        .padding([.leading, .trailing])
+        .onAppear(){
             ApiRequest.loadUsers(){
                 user in try? RealmService.save(items: user)
             }

@@ -12,6 +12,7 @@ import Kingfisher
 struct NewsCellView: View {
     
     @ObservedRealmObject var news: NewsModel
+    @State  var isLike: Bool = false
     
     var body: some View {
         ZStack {
@@ -40,10 +41,12 @@ struct NewsCellView: View {
                 VStack(alignment: .leading){
                     HStack(alignment: .center, spacing: 10.0){
                         Button(action: {
-                            print("Like!")
+                            print("Like! \(news.id)")
+                            ApiRequest.likes(id: news.id, action: "add")
+                            self.isLike.toggle()
                             
                         }) {
-                            Image(systemName: "heart")
+                            Image(systemName: self.isLike == true ? "heart.fill" : "heart")
                                 .renderingMode(.original)
                                 .foregroundColor(Color("yellow-app-color"))
                             Text("\(news.likes)")
