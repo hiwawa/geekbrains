@@ -42,7 +42,7 @@ struct NewsCellView: View {
                     HStack(alignment: .center, spacing: 10.0){
                         Button(action: {
                             print("Like! \(news.id)")
-                            ApiRequest.likes(id: news.id, action: "add")
+                            ApiRequest.likes(id: news.id, action: "add", owner: news.id)
                             self.isLike.toggle()
                             
                         }) {

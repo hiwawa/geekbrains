@@ -10,14 +10,13 @@ import RealmSwift
 
 struct AppView: View {
     
-    
     var body: some View {
         TabView {
             
             ScrollView{
                 ProfileView()
             }
-            .edgesIgnoringSafeArea([.top])
+            //.edgesIgnoringSafeArea([.top])
             .tabItem {
                 Image(systemName: "person.crop.circle")
                 Text("Profile")

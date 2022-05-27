@@ -36,7 +36,6 @@ class ApiRequest: NetworkSession {
                 let user = userJSON.compactMap { UserModel($0) }
                 
                 //print(json)
-                print(UserDefaults.standard.object(forKey: "vkToken")!)
                 
                 DispatchQueue.main.async{
                     completion(user)
@@ -191,7 +190,7 @@ class ApiRequest: NetworkSession {
         }
         
     }
-    static func likes(id: Int, action: String) {
+    static func likes(id: Int, action: String, owner: Int) {
         
         let baseUrl = "https://api.vk.com"
         let path = "/method/likes.\(action)"
@@ -200,6 +199,7 @@ class ApiRequest: NetworkSession {
             "access_token": UserDefaults.standard.object(forKey: "vkToken") as! String,
             "type": "post",
             "item_id": id,
+            "owner_id": owner,
             "v": "5.131"
         ]
         let queue = DispatchQueue(label: "com.vk.async", qos: .background, attributes: [.concurrent])

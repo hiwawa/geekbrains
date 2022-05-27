@@ -17,12 +17,12 @@ struct ProfileView: View {
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            KFImage(URL(string: user!.photo))
+            KFImage(URL(string: user?.photo ?? "https://picsum.photos/200/300"))
                 .resizable()
                 .scaledToFill()
                 .cornerRadius(10)
             VStack(alignment: .leading, spacing: 0){
-                Text("\(user!.firstname) \(user!.lastname)")
+                Text("\(user?.firstname ?? "Test") \(user?.lastname ?? "Test")")
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .padding([.leading])
@@ -47,16 +47,14 @@ struct ProfileView: View {
             }
             
         }
-        .padding([.top], 60)
-        .padding([.leading, .trailing])
-        .onAppear(){
+        .padding()
+        .onAppear{
             ApiRequest.loadUsers(){
-                user in try? RealmService.save(items: user)
+                user in try! RealmService.save(items: user)
             }
             ApiRequest.loadWall(){
-                wall in try? RealmService.save(items: wall)
+                wall in try! RealmService.save(items: wall)
             }
-            print(items)
         }
         VStack{
             HStack{

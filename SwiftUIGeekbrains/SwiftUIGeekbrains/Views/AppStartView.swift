@@ -14,8 +14,9 @@ struct AppStartView: View {
     var body: some View {
         Group {
             isAuthenticated ? AnyView(AppView()) : AnyView(LoginVK())
-        }.onReceive(AuthManager.Authenticated, perform: {
+        }
+        .onReceive(AuthManager.Authenticated, perform: {
             isAuthenticated = $0
-       })
+        })
     }
 }

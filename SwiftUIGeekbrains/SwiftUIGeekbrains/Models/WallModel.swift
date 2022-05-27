@@ -39,7 +39,7 @@ import RealmSwift
         self.likes = json["likes"]["count"].intValue
         self.reposts = json["reposts"]["count"].intValue
         self.views = json["views"]["count"].intValue
-        self.id = json["post_id"].intValue
+        self.id = json["id"].intValue
 
     }
     override class func primaryKey() -> String? {
