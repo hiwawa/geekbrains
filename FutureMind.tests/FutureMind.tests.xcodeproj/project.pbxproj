@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2627E5609B367D5CFA029703 /* Pods_FutureMind_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3601DB8812A7843F954CC1D /* Pods_FutureMind_tests.framework */; };
+		E33DC15F28416A4000E12E8A /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33DC15E28416A4000E12E8A /* NetworkSession.swift */; };
+		E33DC16128416A7000E12E8A /* ApiRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33DC16028416A7000E12E8A /* ApiRequests.swift */; };
+		E33DC16328416C7800E12E8A /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33DC16228416C7800E12E8A /* DataModel.swift */; };
+		E33DC16628417FA200E12E8A /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33DC16528417FA200E12E8A /* DataCell.swift */; };
+		E33DC16828418EE400E12E8A /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33DC16728418EE400E12E8A /* RealmService.swift */; };
+		E33DC16D28422DEB00E12E8A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33DC16C28422DEB00E12E8A /* DetailViewController.swift */; };
 		E352B1D62841486E0095C6F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E352B1D52841486E0095C6F6 /* AppDelegate.swift */; };
 		E352B1D82841486E0095C6F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E352B1D72841486E0095C6F6 /* SceneDelegate.swift */; };
 		E352B1DA2841486E0095C6F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E352B1D92841486E0095C6F6 /* ViewController.swift */; };
@@ -16,6 +23,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5298BDB84041B7ADE2245555 /* Pods-FutureMind.tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FutureMind.tests.debug.xcconfig"; path = "Target Support Files/Pods-FutureMind.tests/Pods-FutureMind.tests.debug.xcconfig"; sourceTree = "<group>"; };
+		C1FB87C599393F3A029DAD9A /* Pods-FutureMind.tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FutureMind.tests.release.xcconfig"; path = "Target Support Files/Pods-FutureMind.tests/Pods-FutureMind.tests.release.xcconfig"; sourceTree = "<group>"; };
+		E33DC15E28416A4000E12E8A /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		E33DC16028416A7000E12E8A /* ApiRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequests.swift; sourceTree = "<group>"; };
+		E33DC16228416C7800E12E8A /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		E33DC16528417FA200E12E8A /* DataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
+		E33DC16728418EE400E12E8A /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		E33DC16C28422DEB00E12E8A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E352B1D22841486E0095C6F6 /* FutureMind.tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FutureMind.tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E352B1D52841486E0095C6F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E352B1D72841486E0095C6F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +39,7 @@
 		E352B1DE2841486F0095C6F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E352B1E12841486F0095C6F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E352B1E32841486F0095C6F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3601DB8812A7843F954CC1D /* Pods_FutureMind_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FutureMind_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +47,73 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2627E5609B367D5CFA029703 /* Pods_FutureMind_tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ADCDB8060C20D465A71DA127 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5298BDB84041B7ADE2245555 /* Pods-FutureMind.tests.debug.xcconfig */,
+				C1FB87C599393F3A029DAD9A /* Pods-FutureMind.tests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E33DC15A284168CD00E12E8A /* System */ = {
+			isa = PBXGroup;
+			children = (
+				E352B1D52841486E0095C6F6 /* AppDelegate.swift */,
+				E352B1D72841486E0095C6F6 /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		E33DC15B284169A500E12E8A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E33DC15E28416A4000E12E8A /* NetworkSession.swift */,
+				E33DC16028416A7000E12E8A /* ApiRequests.swift */,
+				E33DC16728418EE400E12E8A /* RealmService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E33DC15D284169BA00E12E8A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E33DC16228416C7800E12E8A /* DataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E33DC16428417F9200E12E8A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E33DC16528417FA200E12E8A /* DataCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E33DC16928422D6000E12E8A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E352B1D92841486E0095C6F6 /* ViewController.swift */,
+				E33DC16C28422DEB00E12E8A /* DetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		E352B1C92841486E0095C6F6 = {
 			isa = PBXGroup;
 			children = (
 				E352B1D42841486E0095C6F6 /* FutureMind.tests */,
 				E352B1D32841486E0095C6F6 /* Products */,
+				ADCDB8060C20D465A71DA127 /* Pods */,
+				F3A80F56EC1D6F5608284524 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +128,25 @@
 		E352B1D42841486E0095C6F6 /* FutureMind.tests */ = {
 			isa = PBXGroup;
 			children = (
-				E352B1D52841486E0095C6F6 /* AppDelegate.swift */,
-				E352B1D72841486E0095C6F6 /* SceneDelegate.swift */,
-				E352B1D92841486E0095C6F6 /* ViewController.swift */,
+				E33DC16928422D6000E12E8A /* Controllers */,
+				E33DC16428417F9200E12E8A /* Cell */,
+				E33DC15D284169BA00E12E8A /* Models */,
+				E33DC15B284169A500E12E8A /* Network */,
+				E33DC15A284168CD00E12E8A /* System */,
 				E352B1DB2841486E0095C6F6 /* Main.storyboard */,
 				E352B1DE2841486F0095C6F6 /* Assets.xcassets */,
 				E352B1E02841486F0095C6F6 /* LaunchScreen.storyboard */,
 				E352B1E32841486F0095C6F6 /* Info.plist */,
 			);
 			path = FutureMind.tests;
+			sourceTree = "<group>";
+		};
+		F3A80F56EC1D6F5608284524 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3601DB8812A7843F954CC1D /* Pods_FutureMind_tests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E352B1E62841486F0095C6F6 /* Build configuration list for PBXNativeTarget "FutureMind.tests" */;
 			buildPhases = (
+				D0622E20AB8EAC70C5C7BE49 /* [CP] Check Pods Manifest.lock */,
 				E352B1CE2841486E0095C6F6 /* Sources */,
 				E352B1CF2841486E0095C6F6 /* Frameworks */,
 				E352B1D02841486E0095C6F6 /* Resources */,
+				C7C9ABBF6F2235427118D5FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +217,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C7C9ABBF6F2235427118D5FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FutureMind.tests/Pods-FutureMind.tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FutureMind.tests/Pods-FutureMind.tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FutureMind.tests/Pods-FutureMind.tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0622E20AB8EAC70C5C7BE49 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FutureMind.tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E352B1CE2841486E0095C6F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E33DC16D28422DEB00E12E8A /* DetailViewController.swift in Sources */,
 				E352B1DA2841486E0095C6F6 /* ViewController.swift in Sources */,
+				E33DC15F28416A4000E12E8A /* NetworkSession.swift in Sources */,
+				E33DC16128416A7000E12E8A /* ApiRequests.swift in Sources */,
+				E33DC16628417FA200E12E8A /* DataCell.swift in Sources */,
 				E352B1D62841486E0095C6F6 /* AppDelegate.swift in Sources */,
 				E352B1D82841486E0095C6F6 /* SceneDelegate.swift in Sources */,
+				E33DC16328416C7800E12E8A /* DataModel.swift in Sources */,
+				E33DC16828418EE400E12E8A /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -282,6 +414,7 @@
 		};
 		E352B1E72841486F0095C6F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5298BDB84041B7ADE2245555 /* Pods-FutureMind.tests.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -304,12 +437,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		E352B1E82841486F0095C6F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1FB87C599393F3A029DAD9A /* Pods-FutureMind.tests.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -332,7 +466,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

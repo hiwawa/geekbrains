@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     }
     
     var realmtoken: NotificationToken?
+    var selectedIndex = 0
     
     func notification() {
         
@@ -70,6 +71,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+        self.selectedIndex = indexPath.row
+        self.performSegue(withIdentifier: "detailSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       if (segue.identifier == "detailSegue") {
+           let detailView = segue.destination as! DetailViewController
+           let url = self.datas?[selectedIndex].url
+           detailView.url = url!
+       }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
