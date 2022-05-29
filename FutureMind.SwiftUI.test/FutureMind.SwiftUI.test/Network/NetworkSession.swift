@@ -1,8 +1,8 @@
 //
 //  NetworkSession.swift
-//  FutureMind.tests
+//  FutureMind.SwiftUI.test
 //
-//  Created by Aleksander Pankow on 27/05/2022.
+//  Created by Aleksander Pankow on 29/05/2022.
 //
 
 import Foundation
