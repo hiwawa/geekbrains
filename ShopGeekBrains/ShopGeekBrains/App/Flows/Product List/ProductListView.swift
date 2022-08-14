@@ -18,7 +18,11 @@ struct ProductListView: View {
     var body: some View {
         NavigationView {
             List(viewModel.products) { product in
-                Text(product.title)
+                NavigationLink {
+                    Text("Product at \(product.title)")
+                } label: {
+                    Text(product.title)
+                }
             }
             .navigationBarTitle(Text("Product List"))
         }
