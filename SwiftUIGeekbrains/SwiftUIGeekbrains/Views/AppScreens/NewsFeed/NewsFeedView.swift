@@ -6,15 +6,28 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct NewsFeedView: View {
+    
+    @ObservedResults(NewsModel.self, filter: NSPredicate(format: "type = 'post'")) var items
+    
     var body: some View {
-        Text("NewsFeed")
-    }
-}
-
-struct NewsFeedView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewsFeedView()
+        NavigationView{
+            ScrollView(.vertical, showsIndicators: false){
+                VStack(spacing:20){
+                    ForEach(items){news in
+                        NewsCellView(news: news)
+                    }
+                }
+            }
+            .padding(.horizontal)
+            .navigationTitle("News Feed")
+            .onAppear(){
+                ApiRequest.loadNewsFeed(){
+                    news in try? RealmService.save(items: news)
+                }
+            }
+        }
     }
 }

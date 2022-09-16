@@ -6,47 +6,67 @@
 //
 
 import SwiftUI
+import RealmSwift
+import Kingfisher
 
 struct ProfileView: View {
     
-    @State private var status: String = "Онлайн"
+    @ObservedResults(WallModel.self) var items
+    @ObservedObject var vm = AppViewModel()
+    @State private var user = try! Realm().objects(UserModel.self).first
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image("user-photo-jpg")
+            KFImage(URL(string: user?.photo ?? "https://picsum.photos/200/300"))
                 .resizable()
                 .scaledToFill()
+                .cornerRadius(10)
             VStack(alignment: .leading, spacing: 0){
-                Text("Aleksander Pankow")
+                Text("\(user?.firstname ?? "Test") \(user?.lastname ?? "Test")")
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .padding([.leading])
                 HStack{
-                    Text("29 лет")
+                    Text("30 лет")
                         .foregroundColor(Color.white)
                         .padding([.leading, .bottom], 15)
                         .padding(.top, 5)
                         .font(.caption)
-                    Text(status)
-                        .foregroundColor(onlineColor())
-                        .font(.caption2)
-                        .padding(.bottom, 10)
                 }
+                HStack{
+                    Button(action: {
+                        print("Logout")
+                        vm.logoutUser()
+                    }, label: {
+                        NavigationLink(destination: AppStartView()) {
+                             Text("Logout")
+                         }
+                    })
+                }
+                    
             }
             
         }
-    }
-    private func onlineColor() -> Color{
-        if status == "Онлайн" {
-            return Color.green
-        } else {
-            return Color.red
+        .padding()
+        .onAppear{
+            ApiRequest.loadUsers(){
+                user in try! RealmService.save(items: user)
+            }
+            ApiRequest.loadWall(){
+                wall in try! RealmService.save(items: wall)
+            }
         }
-    }
-}
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
+        VStack{
+            HStack{
+                ScrollView(.vertical, showsIndicators: false){
+                    VStack(spacing:20){
+                        ForEach(items){wall in
+                            WallCellView(wall: wall)
+                        }
+                    }
+                }
+            }
+            .padding([.top, .leading, .trailing])
+        }
     }
 }

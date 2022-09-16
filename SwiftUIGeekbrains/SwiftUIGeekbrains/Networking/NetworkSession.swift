@@ -2,7 +2,7 @@
 //  NetworkSession.swift
 //  SwiftUIGeekbrains
 //
-//  Created by Aleksander Pankow on 15/03/2022.
+//  Created by Aleksander Pankow on 07/05/2022.
 //
 
 import Foundation
